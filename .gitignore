@@ -1,0 +1,75 @@
+# Laravel Framework
+/vendor/
+node_modules/
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/app/private
+Homestead.json
+Homestead.yaml
+auth.json
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+artisan
+
+# IDE and Editors
+/.fleet
+/.idea
+/.vscode
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build & Dependencies
+/bootstrap/cache/*.php
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+.phpunit.result.cache
+/coverage
+/tests/Browser/screenshots/
+/tests/Browser/console/
+
+# Docker & DevContainer
+.devcontainer/.env
+docker-compose.override.yml
+*.log
+
+# GitHub Codespace
+.vscode-server/
+.github/codespaces/
+
+# Formation Laravel BTS SIO - Spécifique
+/docs/SOLUTIONS/
+/docs/CORRECTIONS/
+/storage/formation/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+*.sql
+
+# Environment specific
+local.env
+staging.env
+production.env

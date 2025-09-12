@@ -1,0 +1,2 @@
+<?php
+// Modèle User Laravel

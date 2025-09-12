@@ -1,0 +1,191 @@
+# 🚀 SÉANCE 1 : Fondations Laravel + Docker
+
+## 🎯 **Vue d'Ensemble**
+
+Cette première séance pose les **fondations solides** de votre apprentissage Laravel avec une approche équilibrée :
+- **1h30 Classique** : MVC, Routes, Contrôleurs, Vues Blade  
+- **1h30 Innovant** : Docker, GitHub Codespace, environnement moderne
+
+## 🎓 **Objectifs Pédagogiques**
+
+À la fin de cette séance, vous serez capable de :
+
+### **🏗️ Architecture MVC**
+- ✅ Expliquer le rôle de chaque composant (Model, View, Controller)
+- ✅ Naviguer dans la structure d'un projet Laravel
+- ✅ Tracer le flux d'une requête de l'URL à l'affichage
+
+### **🛣️ Système de Routes**
+- ✅ Créer des routes simples et paramétrées
+- ✅ Utiliser les paramètres obligatoires et optionnels
+- ✅ Implémenter les routes nommées pour la navigation
+
+### **🎮 Contrôleurs**
+- ✅ Créer et organiser des contrôleurs Laravel
+- ✅ Passer des données du contrôleur aux vues
+- ✅ Structurer la logique métier proprement
+
+### **🎨 Templates Blade**
+- ✅ Maîtriser l'héritage de templates avec `@extends` et `@section`
+- ✅ Afficher des variables sécurisées avec `{{ }}`
+- ✅ Utiliser les structures conditionnelles et boucles Blade
+
+### **🐳 Environnement Docker**
+- ✅ Comprendre l'intérêt de la containerisation
+- ✅ Utiliser GitHub Codespace efficacement  
+- ✅ Naviguer dans un environnement de développement moderne
+
+## 📋 **Programme Détaillé**
+
+### **🕘 00:00-00:15 - Découverte de l'Application (15min)**
+- **Démonstration** : BiblioTech en fonctionnement
+- **Navigation** : Catalogue, recherche, détails des livres
+- **Architecture** : Vue d'ensemble du code Laravel
+
+### **🕘 00:15-01:45 - MVC et Routes (1h30)**
+
+#### **Partie 1 : Architecture MVC (45min)**
+- **Théorie** (15min) : Le pattern MVC expliqué
+- **Pratique** (30min) : Exploration du code BiblioTech
+  - Analyse du `BookController`
+  - Compréhension du flux de données
+  - Modification d'une vue simple
+
+#### **Partie 2 : Système de Routes (45min)**
+- **Théorie** (15min) : Routes Laravel et paramètres
+- **Pratique** (30min) : Création de nouvelles routes
+  - Route simple pour page "Contact"
+  - Route avec paramètre : `/livre/{id}`
+  - Route avec paramètre optionnel : `/hello/{name?}`
+
+### **🕘 01:45-02:00 - Pause (15min)**
+
+### **🕘 02:00-03:30 - Docker et Templates (1h30)**
+
+#### **Partie 3 : Templates Blade (45min)**
+- **Théorie** (15min) : Héritage et composants Blade
+- **Pratique** (30min) : Personnalisation des vues
+  - Modification du layout principal
+  - Création d'une nouvelle page avec héritage
+  - Utilisation des structures Blade
+
+#### **Partie 4 : Environnement Docker (45min)**
+- **Théorie** (15min) : Docker et containerisation
+- **Pratique** (30min) : Maîtrise de l'environnement
+  - Navigation dans le Codespace
+  - Utilisation du terminal et commandes Artisan
+  - Compréhension des services (PostgreSQL, MailHog)
+
+## 💪 **Travaux Pratiques**
+
+### **TP1 : Personnalisation de Base (20min)**
+- Modifier la page d'accueil avec vos informations
+- Ajouter une nouvelle route `/contact`
+- Mettre à jour la navigation
+
+### **TP2 : Enrichissement du Catalogue (25min)**
+- Ajouter 3 nouveaux livres au catalogue
+- Créer une page de démonstration avec paramètres
+- Tester la recherche avec les nouveaux contenus
+
+### **TP3 : Customisation Avancée (20min)**
+- Personnaliser les couleurs de l'interface
+- Créer une route avec plusieurs paramètres
+- Implémenter des fonctionnalités de navigation avancées
+
+## 📚 **Ressources et Documentation**
+
+### **📖 Lectures Essentielles**
+- [CONCEPTS.md](CONCEPTS.md) - Explications détaillées MVC et Docker
+- [GLOSSAIRE.md](GLOSSAIRE.md) - Vocabulaire technique Laravel
+
+### **💪 Pratique**
+- [EXERCICES.md](EXERCICES.md) - Exercices guidés pas à pas
+- [EVALUATION.md](EVALUATION.md) - Grille d'auto-évaluation
+
+### **🆘 Support**
+- [TROUBLESHOOTING.md](../TROUBLESHOOTING.md) - Solutions aux problèmes courants
+
+## 🛠️ **Outils et Commandes**
+
+### **GitHub Codespace**
+```bash
+# L'application se lance automatiquement
+# URLs disponibles :
+# - http://localhost:8000 (BiblioTech)
+# - http://localhost:8025 (MailHog)  
+# - http://localhost:8080 (Adminer)
+```
+
+### **Commandes Artisan Utiles**
+```bash
+# Voir toutes les routes
+php artisan route:list
+
+# Lancer le serveur (si arrêté)
+php artisan serve --host=0.0.0.0 --port=8000
+
+# Console Laravel interactive
+php artisan tinker
+
+# Nettoyer les caches
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+```
+
+### **Navigation dans le Code**
+```bash
+# Structure importante à connaître :
+app/Http/Controllers/     # Contrôleurs
+routes/web.php           # Définition des routes
+resources/views/         # Templates Blade
+resources/css/app.css    # Styles personnalisés
+resources/js/app.js      # JavaScript
+```
+
+## 🎯 **Critères de Réussite**
+
+### **Niveau Débutant ✅**
+- [ ] J'ai modifié la page d'accueil
+- [ ] J'ai créé une route simple
+- [ ] Je comprends MVC de base
+- [ ] Je navigue dans le Codespace
+
+### **Niveau Intermédiaire ✅**  
+- [ ] J'ai ajouté des livres au catalogue
+- [ ] J'ai créé des routes avec paramètres
+- [ ] Je maîtrise l'héritage Blade
+- [ ] Je personnalise le design
+
+### **Niveau Avancé ✅**
+- [ ] J'ai créé des fonctionnalités complexes
+- [ ] Mon code est propre et commenté
+- [ ] Je débogue les erreurs facilement
+- [ ] J'aide mes collègues
+
+## 🔮 **Aperçu Séance 2**
+
+**Thème** : Base de Données + CI/CD  
+**Compétences** : Eloquent ORM, Migrations, GitHub Actions  
+**Nouveautés** : 
+- Remplacement des données statiques par une vraie BDD
+- Système de tests automatisés
+- Pipeline de déploiement
+
+## 🎉 **Conclusion**
+
+Cette première séance vous donne les **outils essentiels** pour développer avec Laravel. L'approche progressive vous permet de :
+
+1. **Maîtriser les bases** avant d'aller plus loin
+2. **Comprendre l'environnement** de développement moderne  
+3. **Pratiquer concrètement** sur une vraie application
+4. **Préparer les séances** suivantes avec confiance
+
+**Prochaine étape :** Faire les [exercices pratiques](EXERCICES.md) pour consolider vos acquis !
+
+---
+
+🎯 **Questions ou difficultés ?** N'hésitez pas à [créer une issue](../../issues/new?template=question-seance.md) !
+
+⭐ **Séance réussie ?** Mettez une étoile au projet pour nous encourager !

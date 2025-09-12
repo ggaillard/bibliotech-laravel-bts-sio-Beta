@@ -1,0 +1,2 @@
+<?php
+// Provider principal Laravel

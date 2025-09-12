@@ -1,0 +1,142 @@
+---
+name: 🐛 Signaler un Bug
+about: Signaler un problème technique avec l'application BiblioTech
+title: '[BUG] '
+labels: ['bug', 'needs-investigation']
+assignees: ''
+---
+
+## 🐛 **Description du Bug**
+
+**Résumé en une phrase :**
+
+
+**Description détaillée :**
+
+
+## 🔄 **Étapes pour Reproduire**
+
+1. Aller sur '...'
+2. Cliquer sur '...'
+3. Remplir le champ avec '...'
+4. Voir l'erreur
+
+## ✅ **Comportement Attendu**
+
+**Ce qui devrait se passer :**
+
+
+## ❌ **Comportement Actuel**
+
+**Ce qui se passe réellement :**
+
+
+## 📱 **Environnement**
+
+### **Application**
+- **Séance active** : Séance 1 / 2 / 3 / etc.
+- **URL concernée** : http://localhost:8000/...
+- **Type de page** : Accueil / Catalogue / Détail livre / Recherche / Autre
+
+### **Technique**
+- **Environnement** : GitHub Codespace / Installation locale
+- **Navigateur** : Chrome / Firefox / Safari / Edge
+- **Version navigateur** : 
+- **Système d'exploitation** : Windows / macOS / Linux
+
+### **Console Développeur**
+**Erreurs JavaScript (F12 > Console) :**
+```javascript
+// Coller les erreurs de la console ici
+```
+
+**Erreurs réseau (F12 > Network) :**
+```
+// Coller les erreurs HTTP ici (404, 500, etc.)
+```
+
+## 📋 **Logs et Messages d'Erreur**
+
+### **Erreur PHP/Laravel (si applicable)**
+```php
+// Coller l'erreur Laravel complète ici
+```
+
+### **Logs du terminal Codespace**
+```bash
+# Résultat de php artisan route:list ou autres commandes
+```
+
+## 📸 **Captures d'Écran**
+<!-- Glisser-déposer les images ici -->
+
+**Avant le bug (si applicable) :**
+
+
+**Après le bug :**
+
+
+## 🔍 **Informations Supplémentaires**
+
+### **Reproductibilité**
+- [ ] Se produit à chaque fois
+- [ ] Se produit parfois
+- [ ] S'est produit une seule fois
+- [ ] Ne sais pas
+
+### **Impact**
+- [ ] Bloque complètement l'utilisation
+- [ ] Gêne l'utilisation
+- [ ] Problème mineur
+- [ ] Problème cosmétique
+
+### **Séance/Exercice concerné**
+- [ ] Exercice spécifique : ________________
+- [ ] Fonctionnalité de base de l'application
+- [ ] Personnalisation que j'ai ajoutée
+- [ ] Autre : ________________
+
+## 🔧 **Solutions Tentées**
+
+- [ ] Rechargement de la page (F5)
+- [ ] Rechargement complet (Ctrl+F5)
+- [ ] Redémarrage du serveur Laravel
+- [ ] Nettoyage des caches (`php artisan cache:clear`)
+- [ ] Vérification du code
+- [ ] Autre : ________________
+
+**Détails de mes tentatives :**
+
+
+## 🏷️ **Labels Suggérés**
+
+- [ ] Séance-1 / Séance-2 / etc.
+- [ ] Frontend (HTML/CSS/JS)
+- [ ] Backend (PHP/Laravel)
+- [ ] Routes
+- [ ] Vues-Blade
+- [ ] Docker/Codespace
+- [ ] Urgent
+- [ ] Facile-à-corriger
+
+## 🤝 **Contribution**
+
+- [ ] Je peux aider à corriger ce bug
+- [ ] J'ai une idée de solution
+- [ ] Je peux fournir plus d'informations si nécessaire
+- [ ] J'aimerais apprendre comment le corriger
+
+---
+
+## 📝 **Pour l'Équipe de Formation**
+
+**Priorité estimée :** Haute / Moyenne / Basse  
+**Complexité estimée :** Simple / Moyenne / Complexe  
+**Temps estimé :** __ heures
+
+**Notes techniques :**
+
+
+---
+
+**🙏 Merci de signaler ce bug ! Cela nous aide à améliorer l'expérience de formation pour tous les étudiants.**
