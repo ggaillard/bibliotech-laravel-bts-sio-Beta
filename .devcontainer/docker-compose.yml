@@ -2,3 +2,4 @@ version: '3.8'
 services:
 	app:
 		image: mcr.microsoft.com/devcontainers/base:alpine
+		run: apk add --no-cache git-lfs && git lfs install
