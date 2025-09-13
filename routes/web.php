@@ -1,5 +1,35 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookController;
+
+/*
+|--------------------------------------------------------------------------
+| SÉANCE 1 : Routes Fondamentales
+|--------------------------------------------------------------------------
+| Focus : Comprendre le routage Laravel basique
+| - Routes simples
+| - Paramètres d'URL
+| - Routes nommées
+| - Contrôleurs
+*/
+
+// 1. Accueil - Route simple
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// 2. À propos - Route vers vue directe  
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+// 3. Liste livres - Route vers contrôleur
+Route::get('/livres', [BookController::class, 'index'])->name('books.index');
+
+// 4. Détail livre - Route avec paramètre
+Route::get('/livre/{id}', [BookController::class, 'show'])->name('books.show');
+<?php
+
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;

@@ -1,3 +1,174 @@
+# 📚 BiblioTech - Séance 1 : Fondations
+
+![Laravel](https://img.shields.io/badge/Laravel-11.x-red?style=flat-square&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.2-blue?style=flat-square&logo=php)
+![Séance](https://img.shields.io/badge/Séance-1/8-success?style=flat-square)
+![Status](https://img.shields.io/badge/Status-🟢_Disponible-green?style=flat-square)
+
+## 🎯 **Séance 1 : 🏗️ Fondations (MVC + Blade + Routes)**
+
+**Durée :** 3h  
+**Focus :** Architecture MVC, Routes Laravel, Templates Blade  
+**Niveau :** Débutant  
+**Prérequis :** Aucun
+
+---
+
+## 🚀 **Démarrage Ultra-Rapide**
+
+### **Option 1 : GitHub Codespace (Recommandé)**
+1. **Cliquez sur le bouton vert "Code"**
+2. **Onglet "Codespaces"** → "Create codespace on main"
+3. **Attendez 2-3 minutes** - Configuration automatique
+4. **Accédez à http://localhost:8000** quand ready ✅
+
+### **Option 2 : Docker Local**
+```bash
+git clone [repository-url]
+cd bibliotech-laravel-bts-sio
+docker-compose up -d
+# Attendez puis : http://localhost:8000
+```
+
+---
+
+## 📍 **Navigation de l'Application**
+
+| Page | URL | Concept Enseigné |
+|------|-----|------------------|
+| **🏠 Accueil** | `/` | Route simple + Contrôleur + Données |
+| **📖 Catalogue** | `/livres` | Route nommée + Liste + Boucle Blade |
+| **🔍 Détail Livre** | `/livre/{id}` | Route paramètre + Logique contrôleur |
+| **ℹ️ À propos** | `/about` | Route directe vers vue |
+
+---
+
+## 🎯 **Objectifs de la Séance 1**
+
+À la fin de cette séance, vous maîtriserez :
+
+### **✅ Architecture MVC**
+- [ ] Comprendre Model-View-Controller
+- [ ] Identifier le rôle de chaque couche
+- [ ] Tracer le flux d'une requête HTTP
+
+### **✅ Routes Laravel**
+- [ ] Définir des routes dans `routes/web.php`
+- [ ] Utiliser des paramètres d'URL `{id}`
+- [ ] Nommer les routes avec `->name()`
+- [ ] Générer des URLs avec `route()`
+
+### **✅ Contrôleurs**
+- [ ] Créer un contrôleur avec Artisan
+- [ ] Organiser la logique métier
+- [ ] Passer des données aux vues
+
+### **✅ Templates Blade**
+- [ ] Créer un layout avec `@extends`/`@yield`
+- [ ] Utiliser l'héritage de templates
+- [ ] Afficher des variables avec `{{ }}`
+- [ ] Utiliser les boucles `@foreach`
+
+---
+
+## 📚 **Structure du Code (Séance 1)**
+
+```
+🛣️ Routes (routes/web.php)
+├── / → HomeController@index (Accueil)
+├── /about → Vue directe (À propos)  
+├── /livres → BookController@index (Liste)
+└── /livre/{id} → BookController@show (Détail)
+
+🎮 Contrôleurs (app/Http/Controllers/)
+├── HomeController → Données stats + accueil
+└── BookController → Livres statiques (3 livres)
+
+🎨 Vues (resources/views/)
+├── layouts/app.blade.php → Layout principal
+├── welcome.blade.php → Page accueil
+├── about.blade.php → Page à propos
+└── books/
+	├── index.blade.php → Liste des livres
+	└── show.blade.php → Détail d'un livre
+```
+
+---
+
+## 💻 **Commandes Utiles**
+
+```bash
+# Voir les routes définies
+php artisan route:list
+
+# Nettoyer les caches
+php artisan config:clear
+php artisan route:clear  
+php artisan view:clear
+
+# Créer un contrôleur (pour exercices)
+php artisan make:controller MonController
+
+# Arrêter/Démarrer Docker
+docker-compose down
+docker-compose up -d
+```
+
+---
+
+## 🎓 **Exercices Pratiques**
+
+### **Exercice 1 : Nouvelle Route**
+Ajoutez une page "Contact" :
+- Route : `/contact`
+- Vue : `resources/views/contact.blade.php`
+- Navigation dans le menu
+
+### **Exercice 2 : Paramètre Route**
+Créez une route `/livre/{id}/auteur` qui affiche seulement l'auteur
+
+### **Exercice 3 : Données Contrôleur**
+Ajoutez 2 nouveaux livres dans `BookController`
+
+### **Exercice 4 : Template Blade**
+Créez un composant `@include` pour les cartes de livres
+
+---
+
+## 📖 **Documentation**
+
+- 📋 **[Guide Complet Séance 1](docs/SEANCE-1/README.md)**
+- 🧠 **[Concepts MVC expliqués](docs/SEANCE-1/CONCEPTS.md)**
+- 💪 **[Exercices pratiques](docs/SEANCE-1/EXERCICES.md)**
+- ✅ **[Auto-évaluation](docs/SEANCE-1/EVALUATION.md)**
+
+---
+
+## 🚨 **Support & Aide**
+
+- 🐛 **Bug ou erreur :** [Créer une issue](../../issues)
+- ❓ **Question cours :** Demander au formateur
+- 📚 **Laravel Docs :** https://laravel.com/docs
+
+---
+
+## 🎯 **Prochaines Séances**
+
+| Séance | Titre | Focus | Status |
+|--------|-------|-------|--------|
+| **2** | 🗄️ Base de Données | Eloquent + Migrations + CI/CD | 🔒 Bientôt |
+| **3** | ✏️ CRUD + Gamification | Formulaires + Points/Badges | 🔒 Bientôt |
+| **4** | 🔐 Auth + WebSockets | Sécurité + Temps Réel | 🔒 Bientôt |
+| **5** | 🔗 Relations + IA | Eloquent Avancé + OpenAI | 🔒 Bientôt |
+| **6** | 🔍 Recherche + Code Quality | UX + SonarQube + Mentoring | 🔒 Bientôt |
+| **7** | 📱 QR/AR + Analytics | Technologies Immersives | 🔒 Bientôt |
+| **8** | 🚀 API + Production | Déploiement + Performance | 🔒 Bientôt |
+
+---
+
+**🎯 Prêt à découvrir Laravel ? Lancez votre environnement et explorez ! 🚀**
+
+⭐ **N'oubliez pas l'étoile si cette formation vous aide !**
 # 📚 BiblioTech - Formation Laravel BTS SIO SLAM
 
 ![Laravel](https://img.shields.io/badge/Laravel-11.x-red?style=flat-square&logo=laravel)

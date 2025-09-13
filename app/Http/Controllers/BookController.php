@@ -2,6 +2,107 @@
 
 namespace App\Http\Controllers;
 
+class BookController extends Controller
+{
+    /**
+     * SÉANCE 1 : Affichage liste avec données statiques
+     * 
+     * Concepts enseignés :
+     * - Données statiques dans contrôleur
+     * - Passage de données à la vue
+     * - Structure de données simple
+     */
+    public function index()
+    {
+        // Données STATIQUES pour comprendre MVC
+        $books = [
+            [
+                'id' => 1, 
+                'title' => 'Laravel pour Débutants', 
+                'author' => 'John Smith',
+                'year' => 2024,
+                'pages' => 320,
+                'description' => 'Guide complet pour apprendre Laravel étape par étape.'
+            ],
+            [
+                'id' => 2, 
+                'title' => 'Docker en Pratique', 
+                'author' => 'Marie Dubois',
+                'year' => 2023,
+                'pages' => 280,
+                'description' => 'Maîtriser la containerisation avec Docker.'
+            ],
+            [
+                'id' => 3, 
+                'title' => 'MVC Expliqué Simplement', 
+                'author' => 'Pierre Martin',
+                'year' => 2024,
+                'pages' => 195,
+                'description' => 'Comprendre l\'architecture MVC avec des exemples concrets.'
+            ]
+        ];
+        
+        return view('books.index', [
+            'books' => $books,
+            'total' => count($books)
+        ]);
+    }
+    
+    /**
+     * SÉANCE 1 : Affichage détail avec paramètre d'URL
+     * 
+     * Concepts enseignés :
+     * - Paramètres de route
+     * - Recherche dans un tableau
+     * - Gestion d'erreur simple
+     */
+    public function show($id)
+    {
+        // Simuler la recherche (sans BDD pour S1)
+        $books = [
+            1 => [
+                'id' => 1, 
+                'title' => 'Laravel pour Débutants', 
+                'author' => 'John Smith',
+                'year' => 2024,
+                'pages' => 320,
+                'isbn' => '978-2-1234-5678-9',
+                'description' => 'Guide complet pour apprendre Laravel étape par étape. Ce livre couvre tous les aspects fondamentaux du framework PHP le plus populaire.'
+            ],
+            2 => [
+                'id' => 2, 
+                'title' => 'Docker en Pratique', 
+                'author' => 'Marie Dubois',
+                'year' => 2023,
+                'pages' => 280,
+                'isbn' => '978-2-1234-5679-6',
+                'description' => 'Maîtriser la containerisation avec Docker. Apprenez à créer, déployer et gérer des applications containerisées.'
+            ],
+            3 => [
+                'id' => 3, 
+                'title' => 'MVC Expliqué Simplement', 
+                'author' => 'Pierre Martin',
+                'year' => 2024,
+                'pages' => 195,
+                'isbn' => '978-2-1234-5680-2',
+                'description' => 'Comprendre l\'architecture MVC avec des exemples concrets. Pattern architectural incontournable du développement moderne.'
+            ]
+        ];
+        
+        // Vérifier si le livre existe
+        if (!isset($books[$id])) {
+            abort(404, 'Livre non trouvé');
+        }
+        
+        return view('books.show', [
+            'book' => $books[$id]
+        ]);
+    }
+}
+<?php
+
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class BookController extends Controller

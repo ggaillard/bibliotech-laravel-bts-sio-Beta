@@ -5,6 +5,32 @@ namespace App\Http\Controllers;
 class HomeController extends Controller
 {
     /**
+     * Affichage de la page d'accueil
+     * 
+     * SÉANCE 1 : Comprendre le passage de données à une vue
+     */
+    public function index()
+    {
+        $stats = [
+            'total_books' => 3,
+            'total_users' => 12,
+            'app_version' => '1.0.0',
+            'laravel_version' => '11.x'
+        ];
+        
+        return view('welcome', [
+            'stats' => $stats,
+            'message' => 'Bienvenue dans BiblioTech !'
+        ]);
+    }
+}
+<?php
+
+namespace App\Http\Controllers;
+
+class HomeController extends Controller
+{
+    /**
      * Page d'accueil avec statistiques basiques
      * 
      * @return \Illuminate\View\View
