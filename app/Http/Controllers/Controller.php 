@@ -2,7 +2,92 @@
 
 namespace App\Http\Controllers;
 
-abstract class Controller
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+
+/**
+ * Contrôleur de base BiblioTech - Séance 1
+ * 
+ * 🎓 CONCEPT PÉDAGOGIQUE : Héritage et Traits Laravel
+ * 
+ * Cette classe illustre des concepts importants :
+ * 1. HÉRITAGE : Nos contrôleurs héritent de BaseController Laravel
+ * 2. TRAITS : Ajout de fonctionnalités via AuthorizesRequests et ValidatesRequests
+ * 3. MÉTHODES COMMUNES : Utilitaires partagés par tous les contrôleurs
+ * 
+ * Utilisée par : HomeController, BookController
+ * Évolution : En Séance 2, nous ajouterons plus de méthodes communes
+ */
+class Controller extends BaseController
 {
-    //
+    use AuthorizesRequests, ValidatesRequests;
+    
+    /**
+     * Gérer les erreurs 404 avec message personnalisé
+     * 
+     * Utilisée dans BookController::show() pour livre non trouvé
+     * 
+     * @param string $message Message d'erreur personnalisé
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
+    protected function notFound(string $message = 'Ressource non trouvée'): void
+    {
+        abort(404, $message);
+    }
+    
+    /**
+     * Messages flash pour les redirections (Séances futures)
+     * 
+     * Ces méthodes seront utilisées en Séance 3 pour les opérations CRUD
+     */
+    protected function flashSuccess(string $message): void
+    {
+        session()->flash('alert', [
+            'type' => 'success',
+            'message' => $message
+        ]);
+    }
+    
+    protected function flashError(string $message): void
+    {
+        session()->flash('alert', [
+            'type' => 'danger', 
+            'message' => $message
+        ]);
+    }
+    
+    protected function flashInfo(string $message): void
+    {
+        session()->flash('alert', [
+            'type' => 'info',
+            'message' => $message
+        ]);
+    }
+    
+    /**
+     * Réponse JSON standardisée (Séance 8 - API)
+     * 
+     * @param array $data Données à retourner
+     * @param int $status Code de statut HTTP
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function jsonResponse(array $data, int $status = 200): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([
+            'success' => $status >= 200 && $status < 300,
+            'data' => $data,
+            'timestamp' => now()->toISOString()
+        ], $status);
+    }
+    
+    /**
+     * Validation commune des données
+     * Exemple d'utilisation des traits ValidatesRequests
+     */
+    protected function validateBookData(array $data): array
+    {
+        // Cette méthode sera développée en Séance 2
+        return $data;
+    }
 }
