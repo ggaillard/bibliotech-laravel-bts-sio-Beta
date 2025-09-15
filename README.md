@@ -23,10 +23,6 @@
 | **S7** | Technologies Avancées | QR Codes, WebSockets |
 | **S8** | Déploiement, Production | CI/CD, Monitoring, Scalabilité |
 
-### **Compétences BTS SIO Validées**
-- ✅ **E4 - Conception et Développement** : Architecture MVC, Développement full-stack
-- ✅ **E5 - Gestion de Projet** : Git, Docker, Documentation, Tests
-- ✅ **E6 - Parcours de Professionnalisation** : Veille technologique, Collaboration
 
 ## 🚀 **Démarrage Rapide**
 
