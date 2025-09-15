@@ -133,11 +133,11 @@ BiblioTech/
 
 ### **🎓 Pour les Étudiants**
 
-1. **Commencer par la Séance 1** : [docs/seance-01/README.md](docs/seance-01/README.md)
-2. **Comprendre les concepts** : [docs/seance-01/CONCEPTS-MVC.md](docs/seance-01/CONCEPTS-MVC.md)
-3. **Maîtriser le vocabulaire** : [docs/seance-01/GLOSSAIRE-LARAVEL.md](docs/seance-01/GLOSSAIRE-LARAVEL.md)
-4. **Pratiquer avec les TP** : [docs/seance-01/TP-DECOUVERTE-APP.md](docs/seance-01/TP-DECOUVERTE-APP.md)
-5. **S'évaluer** : [docs/seance-01/EVALUATION-COMPETENCES.md](docs/seance-01/EVALUATION-COMPETENCES.md)
+1. **Commencer par la Séance 1** : [docs/seance-01/00-README.md](docs/seance-01/00-README.md)
+2. **Comprendre les concepts** : [docs/seance-01/01-CONCEPTS-MVC.md](docs/seance-01/01-CONCEPTS-MVC.md)
+3. **Maîtriser le vocabulaire** : [docs/seance-01/02-GLOSSAIRE-LARAVEL.md](docs/seance-01/02-GLOSSAIRE-LARAVEL.md)
+4. **Pratiquer avec les TP** : [docs/seance-01/03-TP-DECOUVERTE-APP.md](docs/seance-01/03-TP-DECOUVERTE-APP.md)
+5. **S'évaluer** : [docs/seance-01/06-EVALUATION-COMPETENCES.md](docs/seance-01/06-EVALUATION-COMPETENCES.md)
 
 ### **👨‍🏫 Pour les Formateurs**
 
@@ -284,5 +284,5 @@ Consultez le [guide de dépannage détaillé](docs/TROUBLESHOOTING.md) pour plus
 **⭐ N'oubliez pas de mettre une étoile si ce projet vous aide ! ⭐**
 
 
-[🚀 Commencer](docs/seance-01/README.md) | [📚 Documentation](docs/) | [🤝 Contribuer](.github/CONTRIBUTING.md) | [🆘 Support](https://github.com/votre-username/bibliotech-laravel-bts-sio/issues)
+[🚀 Commencer](docs/seance-01/00-README.md) | [📚 Documentation](docs/) | [🤝 Contribuer](.github/CONTRIBUTING.md) | [🆘 Support](https://github.com/votre-username/bibliotech-laravel-bts-sio/issues)
 
