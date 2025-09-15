@@ -239,12 +239,15 @@ Formation complète Laravel pour BTS SIO SLAM avec environnement de développeme
 
 ## 📚 **Navigation Documentation**
 
+
 ### **🎓 Pour Commencer (Séance 1)**
-- 🚀 **[Guide de Démarrage](docs/SEANCE-1/README.md)** - Premiers pas essentiels
-- 🧠 **[Concepts MVC](docs/SEANCE-1/CONCEPTS.md)** - Comprendre l'architecture
-- 📖 **[Glossaire Technique](docs/SEANCE-1/GLOSSAIRE.md)** - Vocabulaire Laravel
-- 💪 **[Exercices Pratiques](docs/SEANCE-1/EXERCICES.md)** - Mise en pratique
-- ✅ **[Auto-évaluation](docs/SEANCE-1/EVALUATION.md)** - Vérifier ses acquis
+- 🚀 **[Guide de Démarrage](docs/seance-01/00-README.md)** - Premiers pas essentiels
+- 🧠 **[Concepts MVC](docs/seance-01/01-CONCEPTS-MVC.md)** - Comprendre l'architecture
+- 📖 **[Glossaire Laravel](docs/seance-01/02-GLOSSAIRE-LARAVEL.md)** - Vocabulaire Laravel
+- 🧪 **[TP Découverte](docs/seance-01/03-TP-DECOUVERTE-APP.md)** - Premiers pas dans l'app
+- 🔗 **[TP Routes](docs/seance-01/04-TP-ROUTES-SIMPLES.md)** - Manipulation des routes
+- 💪 **[Exercices Pratiques](docs/seance-01/05-EXERCICES-PRATIQUES.md)** - Mise en pratique
+- ✅ **[Évaluation](docs/seance-01/06-EVALUATION-COMPETENCES.md)** - Vérifier ses acquis
 
 ### **📋 Ressources Générales**
 - 🗺️ **[Progression Complète](docs/PROGRESSION.md)** - Vue d'ensemble 8 séances
