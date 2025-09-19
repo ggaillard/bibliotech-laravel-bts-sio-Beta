@@ -40,21 +40,27 @@ Le domaine de la gestion de bibliothèque offre un contexte idéal pour l'appren
 ## 📊 **Analyse des Cas d'Utilisation**
 
 
-### **👥 Diagramme UML des Cas d'Utilisation**
+### **👥 Diagramme des Cas d'Utilisation (Mermaid UML)**
 
-```plantuml
-@startuml
-left to right direction
+```mermaid
+%% Diagramme de cas d'utilisation UML
+%% Acteurs
 actor Visiteur
-actor "Utilisateur" as Utilisateur
-actor "Bibliothécaire" as Bibliothecaire
-actor "Administrateur" as Admin
+actor Utilisateur
+actor Bibliothécaire
+actor Administrateur
 
+Visiteur --|> Utilisateur
+Utilisateur --|> Bibliothécaire
+Bibliothécaire --|> Administrateur
+
+%% Cas d'utilisation Visiteur
 Visiteur --> (Consulter le catalogue)
 Visiteur --> (Rechercher des livres)
 Visiteur --> (Voir détails d'un livre)
 Visiteur --> (S'inscrire)
 
+%% Cas d'utilisation Utilisateur
 Utilisateur --> (Se connecter)
 Utilisateur --> (Gérer son profil)
 Utilisateur --> (Réserver des livres)
@@ -62,20 +68,21 @@ Utilisateur --> (Consulter ses emprunts)
 Utilisateur --> (Noter/Commenter)
 Utilisateur --> (Recevoir recommandations IA)
 
-Bibliothecaire --> (Gérer les emprunts)
-Bibliothecaire --> (Ajouter/Modifier livres)
-Bibliothecaire --> (Gérer les utilisateurs)
-Bibliothecaire --> (Traiter les réservations)
-Bibliothecaire --> (Générer des rapports)
+%% Cas d'utilisation Bibliothécaire
+Bibliothécaire --> (Gérer les emprunts)
+Bibliothécaire --> (Ajouter/Modifier livres)
+Bibliothécaire --> (Gérer les utilisateurs)
+Bibliothécaire --> (Traiter les réservations)
+Bibliothécaire --> (Générer des rapports)
 
-Admin --> (Configurer le système)
-Admin --> (Gérer les rôles)
-Admin --> (Sauvegarder/Restaurer)
-Admin --> (Monitorer performance)
-@enduml
+%% Cas d'utilisation Administrateur
+Administrateur --> (Configurer le système)
+Administrateur --> (Gérer les rôles)
+Administrateur --> (Sauvegarder/Restaurer)
+Administrateur --> (Monitorer performance)
 ```
 
-> Ce diagramme UML peut être visualisé avec [PlantUML](https://plantuml.com/fr/).
+> Ce diagramme Mermaid est compatible avec GitHub et reprend la logique UML des cas d'utilisation.
 
 ### **📋 Détail des Cas d'Utilisation par Séance**
 
