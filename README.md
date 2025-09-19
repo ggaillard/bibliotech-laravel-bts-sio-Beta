@@ -40,49 +40,36 @@ Le domaine de la gestion de bibliothèque offre un contexte idéal pour l'appren
 ## 📊 **Analyse des Cas d'Utilisation**
 
 
-### **👥 Diagramme des Cas d'Utilisation (Mermaid UML)**
+### **👥 Diagramme des Cas d'Utilisation (Markdown & Emojis)**
 
-```mermaid
-%% Diagramme de cas d'utilisation UML
-%% Acteurs
-actor Visiteur
-actor Utilisateur
-actor Bibliothécaire
-actor Administrateur
+Voici une représentation compatible GitHub, inspirée UML, avec les acteurs et leurs cas d'utilisation :
 
-Visiteur --|> Utilisateur
-Utilisateur --|> Bibliothécaire
-Bibliothécaire --|> Administrateur
+- 👤 **Visiteur**
+    - Consulter le catalogue
+    - Rechercher des livres
+    - Voir détails d'un livre
+    - S'inscrire
 
-%% Cas d'utilisation Visiteur
-Visiteur --> (Consulter le catalogue)
-Visiteur --> (Rechercher des livres)
-Visiteur --> (Voir détails d'un livre)
-Visiteur --> (S'inscrire)
+- 🔓 **Utilisateur**
+    - Se connecter
+    - Gérer son profil
+    - Réserver des livres
+    - Consulter ses emprunts
+    - Noter/Commenter
+    - Recevoir recommandations IA
 
-%% Cas d'utilisation Utilisateur
-Utilisateur --> (Se connecter)
-Utilisateur --> (Gérer son profil)
-Utilisateur --> (Réserver des livres)
-Utilisateur --> (Consulter ses emprunts)
-Utilisateur --> (Noter/Commenter)
-Utilisateur --> (Recevoir recommandations IA)
+- 👨‍💼 **Bibliothécaire**
+    - Gérer les emprunts
+    - Ajouter/Modifier livres
+    - Gérer les utilisateurs
+    - Traiter les réservations
+    - Générer des rapports
 
-%% Cas d'utilisation Bibliothécaire
-Bibliothécaire --> (Gérer les emprunts)
-Bibliothécaire --> (Ajouter/Modifier livres)
-Bibliothécaire --> (Gérer les utilisateurs)
-Bibliothécaire --> (Traiter les réservations)
-Bibliothécaire --> (Générer des rapports)
-
-%% Cas d'utilisation Administrateur
-Administrateur --> (Configurer le système)
-Administrateur --> (Gérer les rôles)
-Administrateur --> (Sauvegarder/Restaurer)
-Administrateur --> (Monitorer performance)
-```
-
-> Ce diagramme Mermaid est compatible avec GitHub et reprend la logique UML des cas d'utilisation.
+- 👑 **Administrateur**
+    - Configurer le système
+    - Gérer les rôles
+    - Sauvegarder/Restaurer
+    - Monitorer performance
 
 ### **📋 Détail des Cas d'Utilisation par Séance**
 
