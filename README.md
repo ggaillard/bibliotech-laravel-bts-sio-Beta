@@ -39,68 +39,43 @@ Le domaine de la gestion de bibliothèque offre un contexte idéal pour l'appren
 
 ## 📊 **Analyse des Cas d'Utilisation**
 
-### **👥 Acteurs du Système**
 
-```mermaid
-graph LR
-    A[👤 Visiteur] --> B[🔓 Utilisateur Connecté]
-    B --> C[👨‍💼 Bibliothécaire]
-    C --> D[👑 Administrateur]
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#fff3e0
-    style D fill:#ffebee
+### **👥 Diagramme UML des Cas d'Utilisation**
+
+```plantuml
+@startuml
+left to right direction
+actor Visiteur
+actor "Utilisateur" as Utilisateur
+actor "Bibliothécaire" as Bibliothecaire
+actor "Administrateur" as Admin
+
+Visiteur --> (Consulter le catalogue)
+Visiteur --> (Rechercher des livres)
+Visiteur --> (Voir détails d'un livre)
+Visiteur --> (S'inscrire)
+
+Utilisateur --> (Se connecter)
+Utilisateur --> (Gérer son profil)
+Utilisateur --> (Réserver des livres)
+Utilisateur --> (Consulter ses emprunts)
+Utilisateur --> (Noter/Commenter)
+Utilisateur --> (Recevoir recommandations IA)
+
+Bibliothecaire --> (Gérer les emprunts)
+Bibliothecaire --> (Ajouter/Modifier livres)
+Bibliothecaire --> (Gérer les utilisateurs)
+Bibliothecaire --> (Traiter les réservations)
+Bibliothecaire --> (Générer des rapports)
+
+Admin --> (Configurer le système)
+Admin --> (Gérer les rôles)
+Admin --> (Sauvegarder/Restaurer)
+Admin --> (Monitorer performance)
+@enduml
 ```
 
-### **🎯 Cas d'Utilisation Principaux**
-
-```mermaid
-graph TD
-    %% Acteurs
-    V[👤 Visiteur]
-    U[🔓 Utilisateur]
-    B[👨‍💼 Bibliothécaire]
-    A[👑 Admin]
-    
-    %% Cas d'utilisation niveau Visiteur
-    V --> UC1[Consulter le catalogue]
-    V --> UC2[Rechercher des livres]
-    V --> UC3[Voir détails d'un livre]
-    V --> UC4[S'inscrire]
-    
-    %% Cas d'utilisation niveau Utilisateur
-    U --> UC5[Se connecter]
-    U --> UC6[Gérer son profil]
-    U --> UC7[Réserver des livres]
-    U --> UC8[Consulter ses emprunts]
-    U --> UC9[Noter/Commenter]
-    U --> UC10[Recevoir recommandations IA]
-    
-    %% Cas d'utilisation niveau Bibliothécaire
-    B --> UC11[Gérer les emprunts]
-    B --> UC12[Ajouter/Modifier livres]
-    B --> UC13[Gérer les utilisateurs]
-    B --> UC14[Traiter les réservations]
-    B --> UC15[Générer des rapports]
-    
-    %% Cas d'utilisation niveau Admin
-    A --> UC16[Configurer le système]
-    A --> UC17[Gérer les rôles]
-    A --> UC18[Sauvegarder/Restaurer]
-    A --> UC19[Monitorer performance]
-    
-    %% Styles
-    classDef visiteur fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef utilisateur fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef bibliothecaire fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    classDef admin fill:#ffebee,stroke:#b71c1c,stroke-width:2px
-    
-    class V visiteur
-    class U utilisateur
-    class B bibliothecaire
-    class A admin
-```
+> Ce diagramme UML peut être visualisé avec [PlantUML](https://plantuml.com/fr/).
 
 ### **📋 Détail des Cas d'Utilisation par Séance**
 
