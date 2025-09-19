@@ -324,9 +324,6 @@ bibliotech/
 | Séance | Documentation | Exercices | Code Source |
 |---------|---------------|-----------|-------------|
 | **Séance 1** | [📖 Guide S1](docs/SEANCE-1/README.md) | [💪 Exercices S1](docs/SEANCE-1/EXERCICES.md) | [📁 Code S1](docs/SEANCE-1/code/) |
-| **Séance 2** | [📖 Guide S2](docs/SEANCE-2/README.md) | [💪 Exercices S2](docs/SEANCE-2/EXERCICES.md) | [📁 Code S2](docs/SEANCE-2/code/) |
-| **Séance 3** | [📖 Guide S3](docs/SEANCE-3/README.md) | [💪 Exercices S3](docs/SEANCE-3/EXERCICES.md) | [📁 Code S3](docs/SEANCE-3/code/) |
-| **Séance 4** | [📖 Guide S4](docs/SEANCE-4/README.md) | [💪 Exercices S4](docs/SEANCE-4/EXERCICES.md) | [📁 Code S4](docs/SEANCE-4/code/) |
 
 ---
 
@@ -348,16 +345,7 @@ bibliotech/
 
 ## 📄 **Licence**
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
----
-
-## 🙏 **Remerciements**
-
-- **Laravel Team** pour ce framework exceptionnel
-- **Communauté PHP** pour les outils et bibliothèques
-- **GitHub** pour Codespaces qui révolutionne l'enseignement
-- **Tous les contributeurs** qui enrichissent ce projet
+Ce projet est sous licence Creative Commons BY-SA 3.0. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ---
 
