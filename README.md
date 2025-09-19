@@ -284,5 +284,5 @@ Consultez le [guide de dépannage détaillé](docs/TROUBLESHOOTING.md) pour plus
 **⭐ N'oubliez pas de mettre une étoile si ce projet vous aide ! ⭐**
 
 
-[🚀 Commencer](docs/seance-01/00-README.md) | [📚 Documentation](docs/) | [🤝 Contribuer](.github/CONTRIBUTING.md) | [🆘 Support](https://github.com/votre-username/bibliotech-laravel-bts-sio/issues)
+[🚀 Commencer](docs/seance-01/00-README.md) | [📚 Documentation](docs/) | [🤝 Contribuer](.github/CONTRIBUTING.md) 
 
