@@ -22,7 +22,7 @@ Cette grille d'évaluation permet de vérifier l'acquisition des compétences fo
 - ❌ Insuffisant (0pt) : Confus sur la séparation des responsabilités
 
 **Questions d'évaluation :**
-- "Expliquez le rôle du BookController dans l'architecture MVC"
+- "Expliquez le rôle du LivreController dans l'architecture MVC"
 - "Où se trouve la logique métier dans BiblioTech ?"
 
 #### Compétence 1.2 : Organisation des fichiers Laravel (2 points)
