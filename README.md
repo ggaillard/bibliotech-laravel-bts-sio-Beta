@@ -1,19 +1,13 @@
-# 📚 BiblioTech - Application Laravel Éducative
+# 📚 BiblioTech - Formation Laravel BTS SIO SLAM
 
-[![Laravel](https://img.shields.io/badge/Laravel-11.x-red?style=for-the-badge&logo=laravel)](https://laravel.com)
-[![PHP](https://img.shields.io/badge/PHP-8.2+-blue?style=for-the-badge&logo=php)](https://php.net)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue?style=for-the-badge&logo=docker)](https://docker.com)
-[![GitHub Codespaces](https://img.shields.io/badge/Codespaces-Ready-green?style=for-the-badge&logo=github)](https://github.com/features/codespaces)
-[![BTS SIO](https://img.shields.io/badge/BTS-SIO_SLAM-orange?style=for-the-badge)](https://www.onisep.fr/Ressources/Univers-Formation/Formations/Post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers)
+![Laravel](https://img.shields.io/badge/Laravel-11.x-red?style=flat-square&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.2-blue?style=flat-square&logo=php)
+![GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-success?style=flat-square&logo=github)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?style=flat-square&logo=postgresql)
 
-> **Application de gestion de bibliothèque** développée avec Laravel 11 dans le cadre de la formation **BTS SIO SLAM**. Parfaite pour apprendre les concepts fondamentaux du développement web moderne avec un environnement containerisé Docker et GitHub Codespaces.
+## 🎯 **À propos du Projet**
 
----
-
-## 🎯 **Contexte du Projet**
-
-### **🏫 Cadre Pédagogique**
-BiblioTech est un **projet éducatif complet** conçu spécifiquement pour les étudiants de **BTS SIO option SLAM** (Solutions Logicielles et Applications Métiers). L'objectif est de maîtriser le développement web moderne à travers un cas d'usage concret et motivant.
+**BiblioTech** est une application de gestion de bibliothèque moderne développée avec Laravel, conçue spécialement pour la formation BTS SIO SLAM. Le projet couvre progressivement tous les aspects du développement web moderne : de l'architecture MVC aux technologies avancées (IA, WebSockets, QR Codes).
 
 ### **🎓 Public Cible**
 - **Étudiants BTS SIO SLAM** - 1ère et 2ème année
@@ -39,51 +33,32 @@ Le domaine de la gestion de bibliothèque offre un contexte idéal pour l'appren
 
 ## 📊 **Analyse des Cas d'Utilisation**
 
+### **👥 Acteurs et Rôles**
 
-### **👥 Diagramme des Cas d'Utilisation (Markdown & Emojis)**
+#### **🌐 Visiteur (Non connecté)**
+- Consulter le catalogue public
+- Rechercher des livres
+- Voir les détails d'un livre
+- S'inscrire au système
 
-Voici une représentation compatible GitHub, inspirée UML, avec les acteurs et leurs cas d'utilisation :
+#### **🔓 Utilisateur Connecté**
+- Emprunter des livres
+- Gérer ses emprunts
+- Réserver des livres
+- Laisser des avis et notes
+- Recevoir des recommandations
 
-- 👤 **Visiteur**
-    - Consulter le catalogue
-    - Rechercher des livres
-    - Voir détails d'un livre
-    - S'inscrire
+#### **👨‍💼 Bibliothécaire**
+- Gérer le catalogue (CRUD livres)
+- Gérer les utilisateurs
+- Traiter les emprunts/retours
+- Générer des rapports
 
-- 🔓 **Utilisateur**
-```yaml
-UTILISATEUR:
-    nom: varchar
-    courriel: varchar UK
-    cree_le: timestamp
-    modifie_le: timestamp
-
-LIVRE:
-    titre: varchar
-    auteur: varchar
-    categorie_id: bigint FK
-    cree_le: timestamp
-    modifie_le: timestamp
-
-CATEGORIE:
-    nom: varchar UK
-    cree_le: timestamp
-    modifie_le: timestamp
-
-EMPRUNT:
-    utilisateur_id: bigint FK
-    livre_id: bigint FK
-    emprunte_le: timestamp
-    cree_le: timestamp
-    modifie_le: timestamp
-```
-
-#### **Séances 7-8 : Technologies Avancées (Admin)**
-| Cas d'Usage | Description | Complexité |
-|-------------|-------------|------------|
-| **Recommandations IA** | Suggestions personnalisées via OpenAI | 🔴 Complexe |
-| **Monitoring** | Tableaux de bord temps réel | 🔴 Complexe |
-| **QR Codes** | Génération pour inventaire physique | 🟡 Moyen |
+#### **🛡️ Administrateur**
+- Gérer les bibliothécaires
+- Configurer le système
+- Accéder aux analyses avancées
+- Maintenir l'application
 
 ---
 
@@ -119,13 +94,6 @@ graph TB
         STORAGE[☁️ Cloud Storage]
     end
     
-    subgraph "Infrastructure"
-        DOCKER[🐳 Docker]
-        NGINX[⚡ Nginx]
-        SUPERVISOR[👥 Supervisor]
-    end
-    
-    %% Connexions
     UI --> ROUTES
     PWA --> API_CLIENT
     API_CLIENT --> ROUTES
@@ -138,104 +106,104 @@ graph TB
     SERVICES --> OPENAI
     JOBS --> MAIL
     JOBS --> STORAGE
-    
+```
+
+### **🗄️ Schéma de Base de Données**
+
+```mermaid
+erDiagram
     UTILISATEUR {
+        id bigint PK
         nom varchar
-        courriel varchar UK
+        email varchar UK
+        email_verifie_le timestamp
+        mot_de_passe varchar
+        role enum
+        avatar varchar
         cree_le timestamp
         modifie_le timestamp
     }
+    
     LIVRE {
+        id bigint PK
         titre varchar
         auteur varchar
+        isbn varchar UK
+        description text
         categorie_id bigint FK
+        image_couverture varchar
+        annee_publication int
+        pages int
+        disponible boolean
         cree_le timestamp
         modifie_le timestamp
     }
+    
     CATEGORIE {
+        id bigint PK
         nom varchar UK
+        description text
+        couleur varchar
+        icone varchar
         cree_le timestamp
         modifie_le timestamp
     }
+    
     EMPRUNT {
+        id bigint PK
         utilisateur_id bigint FK
         livre_id bigint FK
         emprunte_le timestamp
+        echeance_le timestamp
+        rendu_le timestamp
+        statut enum
+        notes text
         cree_le timestamp
         modifie_le timestamp
-    }
-        created_at timestamp
-        updated_at timestamp
-    }
-    
-    BOOK {
-        id bigint PK
-        title varchar
-        author varchar
-        isbn varchar UK
-        description text
-        category_id bigint FK
-        cover_image varchar
-        publication_year int
-        pages int
-        available boolean
-        created_at timestamp
-        updated_at timestamp
-    }
-    
-    CATEGORY {
-        id bigint PK
-        name varchar UK
-        description text
-        color varchar
-        icon varchar
-        created_at timestamp
-        updated_at timestamp
-    }
-    
-    LOAN {
-        id bigint PK
-        user_id bigint FK
-        book_id bigint FK
-        loaned_at timestamp
-        due_at timestamp
-        returned_at timestamp
-        status enum
-        notes text
-        created_at timestamp
-        updated_at timestamp
     }
     
     RESERVATION {
         id bigint PK
-        user_id bigint FK
-        book_id bigint FK
-        reserved_at timestamp
-        expires_at timestamp
-        status enum
-        created_at timestamp
-        updated_at timestamp
+        utilisateur_id bigint FK
+        livre_id bigint FK
+        reserve_le timestamp
+        expire_le timestamp
+        statut enum
+        cree_le timestamp
+        modifie_le timestamp
     }
     
-    REVIEW {
+    AVIS {
         id bigint PK
-        user_id bigint FK
-        book_id bigint FK
-        rating int
-        comment text
-        created_at timestamp
-        updated_at timestamp
+        utilisateur_id bigint FK
+        livre_id bigint FK
+        note int
+        commentaire text
+        cree_le timestamp
+        modifie_le timestamp
     }
     
     %% Relations
-    USER ||--o{ LOAN : "emprunte"
-    USER ||--o{ RESERVATION : "réserve"
-    USER ||--o{ REVIEW : "note"
-    BOOK ||--o{ LOAN : "est emprunté"
-    BOOK ||--o{ RESERVATION : "est réservé"
-    BOOK ||--o{ REVIEW : "reçoit notes"
-    CATEGORY ||--o{ BOOK : "contient"
+    UTILISATEUR ||--o{ EMPRUNT : "emprunte"
+    UTILISATEUR ||--o{ RESERVATION : "réserve"
+    UTILISATEUR ||--o{ AVIS : "donne_avis"
+    LIVRE ||--o{ EMPRUNT : "est_emprunte"
+    LIVRE ||--o{ RESERVATION : "est_reserve"
+    LIVRE ||--o{ AVIS : "recoit_avis"
+    CATEGORIE ||--o{ LIVRE : "contient"
 ```
+
+### **📈 Relations des Données**
+
+| **Relation** | **Type** | **Description** |
+|--------------|----------|------------------|
+| Utilisateur → Emprunt | One-to-Many | Un utilisateur peut avoir plusieurs emprunts |
+| Livre → Emprunt | One-to-Many | Un livre peut être emprunté plusieurs fois |
+| Utilisateur → Reservation | One-to-Many | Un utilisateur peut réserver plusieurs livres |
+| Livre → Reservation | One-to-Many | Un livre peut être réservé plusieurs fois |
+| Utilisateur → Avis | One-to-Many | Un utilisateur peut laisser plusieurs avis |
+| Livre → Avis | One-to-Many | Un livre peut recevoir plusieurs avis |
+| Categorie → Livre | One-to-Many | Une catégorie contient plusieurs livres |
 
 ---
 
@@ -260,221 +228,139 @@ graph TB
 
 ### **Option 1 : GitHub Codespaces (Recommandé) 🌟**
 
-```bash
-# 1. Cliquez sur "Code" > "Create codespace on main"
-# 2. Attendez la configuration automatique (2-3 minutes)
-# 3. L'application se lance automatiquement sur http://localhost:8000
-```
+1. **Cliquez sur le bouton vert "Code"**
+2. **Sélectionnez l'onglet "Codespaces"** 
+3. **Cliquez "Create codespace on main"**
+4. **Attendez 2-3 minutes** - L'application se configure automatiquement
+5. **Accédez à http://localhost:8000** quand le terminal affiche "✅ BiblioTech est prêt !"
 
 **🎉 C'est tout ! Votre environnement est prêt en 3 clics.**
 
 ### **Option 2 : Installation Locale**
 
 ```bash
-git clone https://github.com/votre-organisation/bibliotech.git
+# Cloner le projet
+git clone https://github.com/votre-username/bibliotech.git
 cd bibliotech
 
-# Copier le fichier d'environnement
-cp .env.example .env
-
-# Démarrer avec Docker
+# Docker Compose
 docker-compose up -d
 
-# Configuration Laravel
+# Installation des dépendances
 docker-compose exec app composer install
+docker-compose exec app npm install && npm run build
+
+# Configuration
+docker-compose exec app cp .env.example .env
 docker-compose exec app php artisan key:generate
-docker-compose exec app php artisan migrate:fresh --seed
+
+# Base de données
+docker-compose exec app php artisan migrate --seed
+
+# Accéder à l'application
+# http://localhost:8000
 ```
 
 ---
 
-## 🌐 **URLs de l'Application**
-
-Une fois l'environnement démarré :
-
-| Service | URL | Description |
-|---------|-----|-------------|
-| **Application** | http://localhost:8000 | BiblioTech principal |
-| **MailHog** | http://localhost:8025 | Interface emails de test |
-| **Adminer** | http://localhost:8080 | Administration base de données |
-
----
-
-## 📁 **Structure du Projet**
+## 📚 **Structure du Projet**
 
 ```
-📁 bibliotech/
-├── 📁 app/                   # Code application Laravel
-│   ├── Http/Controllers/     # Contrôleurs MVC
-│   ├── Models/               # Modèles Eloquent
-│   └── Services/             # Services métier
-├── 📁 database/              # Migrations, Seeders, Factories
-├── 📁 resources/             # Vues Blade, Assets, Traductions
-├── 📁 routes/                # Définition des routes
-├── 📁 tests/                 # Tests automatisés
-├── 📁 docs/                  # Documentation pédagogique
-│   ├── seance-01/           # Documentation Séance 1
-│   ├── seance-02/           # Documentation Séance 2
-│   └── ...                  # Autres séances
-├── 🐳 docker-compose.yml    # Configuration Docker
-├── 📄 .devcontainer.json    # Configuration Codespace
-└── 📄 README.md             # Ce fichier
+bibliotech/
+├── 📂 app/
+│   ├── 📂 Http/Controllers/     # Contrôleurs Laravel
+│   ├── 📂 Models/              # Modèles Eloquent
+│   └── 📂 Services/            # Services métier
+├── 📂 database/
+│   ├── 📂 migrations/          # Migrations de base de données
+│   ├── 📂 seeders/            # Données de test
+│   └── 📂 factories/          # Factories pour les tests
+├── 📂 resources/
+│   ├── 📂 views/              # Templates Blade
+│   ├── 📂 css/               # Styles CSS
+│   └── 📂 js/                # JavaScript
+├── 📂 routes/
+│   ├── web.php               # Routes web
+│   └── api.php               # Routes API
+├── 📂 docs/
+│   ├── 📂 SEANCE-1/          # Documentation Séance 1
+│   ├── 📂 SEANCE-2/          # Documentation Séance 2
+│   └── ...                   # Autres séances
+├── 📂 .devcontainer/         # Configuration Codespace
+├── 📂 docker/                # Configuration Docker
+├── docker-compose.yml        # Services Docker
+└── README.md                 # Ce fichier
 ```
 
 ---
 
-## 🎮 **Fonctionnalités Disponibles**
+## 🛠️ **Technologies Utilisées**
 
-### **📚 Séance 1 : Fondations**
-✅ **Page d'accueil** avec statistiques temps réel  
-✅ **Catalogue des livres** avec 5 livres de démonstration  
-✅ **Recherche simple** par titre, auteur  
-✅ **Pages de détail** complètes pour chaque livre  
-✅ **Interface responsive** Bootstrap 5  
+### **🎯 Stack Principal**
+- **Framework** : Laravel 11.x
+- **Langage** : PHP 8.2+
+- **Base de données** : PostgreSQL 15
+- **Cache** : Redis
+- **Frontend** : Blade Templates + Bootstrap 5
+- **Containerisation** : Docker + Docker Compose
 
-### **📊 Séance 2 : Base de Données**
-🔄 **Migration vers PostgreSQL** (données dynamiques)  
-🔄 **Gestion CRUD complète** des livres  
-🔄 **Système de catégories** hiérarchiques  
+### **📦 Dépendances Clés**
+- **laravel/framework** : Framework principal
+- **laravel/sanctum** : Authentification API
+- **spatie/laravel-permission** : Gestion des rôles
+- **barryvdh/laravel-debugbar** : Debug en développement
+- **intervention/image** : Manipulation d'images
 
-### **🔐 Séance 3-4 : Authentification**
-🔄 **Inscription/Connexion** utilisateurs  
-🔄 **Gestion des profils**  
-🔄 **Système de rôles** (Visiteur, Utilisateur, Bibliothécaire, Admin)  
-
-### **🔗 Séance 5-6 : Fonctionnalités Avancées**
-🔄 **Système d'emprunts** complet  
-🔄 **Réservations** de livres  
-🔄 **Notifications** temps réel  
-
-### **🚀 Séance 7-8 : Technologies Innovantes**
-🔄 **Recommandations IA** via OpenAI  
-🔄 **QR Codes** pour inventaire  
-🔄 **Analytics et monitoring**  
+### **🔧 Outils de Développement**
+- **GitHub Codespaces** : Environnement de développement cloud
+- **Laravel Sail** : Environnement Docker pour Laravel  
+- **Laravel Mix** : Compilation des assets
+- **PHPUnit** : Tests unitaires et fonctionnels
 
 ---
 
-## 🧠 **Guide de Formation**
+## 📖 **Documentation par Séance**
 
-### **🎓 Pour les Étudiants**
-
-1. **Commencer par la Séance 1** : [docs/seance-01/00-README.md](docs/seance-01/00-README.md)
-2. **Comprendre les concepts** : [docs/seance-01/01-CONCEPTS-MVC.md](docs/seance-01/01-CONCEPTS-MVC.md)
-3. **Maîtriser le vocabulaire** : [docs/seance-01/02-GLOSSAIRE-LARAVEL.md](docs/seance-01/02-GLOSSAIRE-LARAVEL.md)
-4. **Pratiquer avec les TP** : [docs/seance-01/03-TP-DECOUVERTE-APP.md](docs/seance-01/03-TP-DECOUVERTE-APP.md)
-5. **S'évaluer** : [docs/seance-01/06-EVALUATION-COMPETENCES.md](docs/seance-01/06-EVALUATION-COMPETENCES.md)
-
-### **👨‍🏫 Pour les Formateurs**
-
-- 📋 **Progression complète** : [docs/PROGRESSION.md](docs/PROGRESSION.md)
-- 🎯 **Correspondance BTS** : [docs/REFERENTIEL-BTS.md](docs/REFERENTIEL-BTS.md)
-- 📊 **Grilles d'évaluation** intégrées
-- 🔧 **Outils de suivi** et statistiques
+| Séance | Documentation | Exercices | Code Source |
+|---------|---------------|-----------|-------------|
+| **Séance 1** | [📖 Guide S1](docs/SEANCE-1/README.md) | [💪 Exercices S1](docs/SEANCE-1/EXERCICES.md) | [📁 Code S1](docs/SEANCE-1/code/) |
+| **Séance 2** | [📖 Guide S2](docs/SEANCE-2/README.md) | [💪 Exercices S2](docs/SEANCE-2/EXERCICES.md) | [📁 Code S2](docs/SEANCE-2/code/) |
+| **Séance 3** | [📖 Guide S3](docs/SEANCE-3/README.md) | [💪 Exercices S3](docs/SEANCE-3/EXERCICES.md) | [📁 Code S3](docs/SEANCE-3/code/) |
+| **Séance 4** | [📖 Guide S4](docs/SEANCE-4/README.md) | [💪 Exercices S4](docs/SEANCE-4/EXERCICES.md) | [📁 Code S4](docs/SEANCE-4/code/) |
 
 ---
 
-## 🛠️ **Commandes Utiles**
+## 🤝 **Contribution et Support**
 
-### **Laravel Artisan**
-```bash
-# Lister toutes les routes
-php artisan route:list
-
-# Console interactive
-php artisan tinker
-
-# Nettoyer les caches
-php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
-
-# Créer des éléments
-php artisan make:controller BookController --resource
-php artisan make:model Book -m
-php artisan make:seeder BookSeeder
-```
-
-### **Docker & Services**
-```bash
-# Démarrer tous les services
-docker-compose up -d
-
-# Voir les logs en temps réel
-docker-compose logs -f
-
-# Accéder au conteneur de l'application
-docker-compose exec app bash
-
-# Arrêter tous les services
-docker-compose down
-```
-
----
-
-## 🆘 **Support**
-
-### **🎯 Templates d'Issues**
-- 🐛 **Bug ou erreur** : [Créer une issue](../../issues/new?template=bug-report.md)
-- ❓ **Question cours** : [Poser une question](../../issues/new?template=question-seance.md)
-- 💡 **Suggestion** : [Proposer une amélioration](../../issues/new?template=feature-request.md)
-
-### **📚 Documentation**
-    - 🔧 **Problème technique** : [Guide dépannage](docs/TROUBLESHOOTING.md)
-    - 📖 **Concepts Laravel** : [Concepts MVC](docs/seance-01/01-CONCEPTS-MVC.md)
-    - 📝 **Glossaire** : [Vocabulaire technique](docs/seance-01/02-GLOSSAIRE-LARAVEL.md)
-    - 🇫🇷 **Traduction complète du projet** : [Plan de traduction FR](docs/PLAN-TRADUCTION-FR.md)
-
----
-
-## 🏆 **Pourquoi Cette Formation ?**
-
-### **✅ Moderne**
-- Laravel 11.x (dernière version)
-- GitHub Codespace (développement cloud)
-- Interface responsive mobile-first
-- Technologies actuelles (Docker, CI/CD, IA)
-
-### **✅ Progressive**
-- 8 séances structurées et cohérentes
-- Complexité croissante maîtrisée
-- Projet réel qui évolue naturellement
-
-### **✅ Pratique**
-- Application complète BiblioTech
-- Exercices concrets sur vrais cas d'usage
-- Auto-évaluation continue avec badges
-
-### **✅ Professionnelle**
-- Bonnes pratiques Laravel respectées
-- Code documenté et testé
-- Architecture scalable et maintenable
-- Workflow DevOps intégré
-
----
-
-## 🌟 **Contribuer au Projet**
-
-### **🔄 Pour les Étudiants**
+### **💡 Comment Contribuer**
 1. **Fork** le projet
-2. **Créer une branche** : `git checkout -b feature/ma-fonctionnalite`
-3. **Commit** : `git commit -m 'Ajout fonctionnalité X'`
-4. **Push** : `git push origin feature/ma-fonctionnalite`
-5. **Pull Request** avec description détaillée
+2. **Créer une branche** pour votre feature (`git checkout -b feature/AmazingFeature`)
+3. **Commiter** vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** vers la branche (`git push origin feature/AmazingFeature`)
+5. **Ouvrir une Pull Request**
 
-### **📝 Pour les Formateurs**
-- Proposer des améliorations pédagogiques
-- Ajouter des exercices ou évaluations
-- Corriger la documentation
-- Partager des cas d'usage intéressants
-
----
-
-## 📜 **Licence**
-
-Projet éducatif libre sous licence CC BY-SA 4.0 — voir le fichier [LICENSE](LICENSE) pour plus de détails.
+### **🆘 Support**
+- **Issues GitHub** : Pour les bugs et demandes de fonctionnalités
+- **Discussions** : Pour les questions générales et l'aide
+- **Wiki** : Documentation détaillée et FAQ
 
 ---
 
-🎯 **Prêt à devenir un expert Laravel ? Lancez votre Codespace et commençons !**
+## 📄 **Licence**
 
-⭐ **N'oubliez pas l'étoile si cette formation vous aide !**
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+---
+
+## 🙏 **Remerciements**
+
+- **Laravel Team** pour ce framework exceptionnel
+- **Communauté PHP** pour les outils et bibliothèques
+- **GitHub** pour Codespaces qui révolutionne l'enseignement
+- **Tous les contributeurs** qui enrichissent ce projet
+
+---
+
+**🎯 Prêt à apprendre Laravel ? Créez votre Codespace maintenant !**
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/votre-username/bibliotech)

@@ -134,11 +134,11 @@ Dans `app/Http/Controllers/BookController.php`, ajouter vos livres dans la méth
     'titre' => 'Votre Titre de Livre',
     'auteur' => 'Votre Auteur Préféré',
     'isbn' => '978-2-1234-5683-3',
-    'publication_year' => 2024,
+    'annee_publication' => 2024,
     'pages' => 300,
-    'available' => true, // ou false
+    'disponible' => true, // ou false
     'description' => 'Description détaillée de votre livre...',
-    'cover' => 'https://via.placeholder.com/200x300/[COULEUR]/FFFFFF?text=TITRE',
+    'couverture' => 'https://via.placeholder.com/200x300/[COULEUR]/FFFFFF?text=TITRE',
     'categorie' => 'Votre Catégorie',
     'language' => 'Français',
     'publisher' => 'Votre Éditeur'

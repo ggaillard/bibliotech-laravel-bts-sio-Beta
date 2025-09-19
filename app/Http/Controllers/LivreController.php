@@ -90,12 +90,12 @@ class LivreController extends Controller
             ];
         
         // Vérifier si le livre existe
-        if (!isset($books[$id])) {
+        if (!isset($livres[$id])) {
             abort(404, 'Livre non trouvé');
         }
         
         return view('books.show', [
-                'book' => $livres[$id]
+            'livre' => $livres[$id]
         ]);
     }
 }
@@ -111,7 +111,7 @@ class BookController extends Controller
      * Données statiques des livres pour Séance 1
      * En Séance 2, ces données viendront d'Eloquent : Book::all()
      */
-    private function getBooksData()
+    private function getLivresData()
     {
         return [
             [
@@ -121,10 +121,10 @@ class BookController extends Controller
                 'isbn' => '978-2-123456-78-9',
                 'categorie' => 'Développement Web',
                 'description' => 'Guide complet pour apprendre Laravel de A à Z. Architecture MVC, Eloquent ORM, Blade templates et bien plus.',
-                'cover' => '/images/books/laravel.jpg',
-                'available' => true,
+                'couverture' => '/images/livres/laravel.jpg',
+                'disponible' => true,
                 'pages' => 450,
-                'published_year' => 2024
+                'annee_publication' => 2024
             ],
             [
                 'id' => 2,
@@ -133,10 +133,10 @@ class BookController extends Controller
                 'isbn' => '978-2-987654-32-1',
                 'categorie' => 'Infrastructure',
                 'description' => 'Apprenez la containerisation avec Docker. Installation, configuration, Docker Compose et bonnes pratiques.',
-                'cover' => '/images/books/docker.jpg',
-                'available' => true,
+                'couverture' => '/images/livres/docker.jpg',
+                'disponible' => true,
                 'pages' => 320,
-                'published_year' => 2023
+                'annee_publication' => 2023
             ],
             [
                 'id' => 3,
@@ -145,34 +145,34 @@ class BookController extends Controller
                 'isbn' => '978-2-456789-12-3',
                 'categorie' => 'Programmation',
                 'description' => 'Découvrez PHP 8 et ses nouveautés : Union Types, Attributes, Match Expression et performances améliorées.',
-                'cover' => '/images/books/php.jpg',
-                'available' => false,
+                'couverture' => '/images/livres/php.jpg',
+                'disponible' => false,
                 'pages' => 380,
-                'published_year' => 2023
+                'annee_publication' => 2023
             ],
             [
                 'id' => 4,
-                'title' => 'Git et GitHub',
-                'author' => 'Version Control Expert',
+                'titre' => 'Git et GitHub',
+                'auteur' => 'Expert Git',
                 'isbn' => '978-2-147258-36-9',
-                'category' => 'Outils',
+                'categorie' => 'Outils',
                 'description' => 'Maîtrisez le contrôle de version avec Git. Branches, merge, rebase et collaboration avec GitHub.',
-                'cover' => '/images/books/git.jpg',
-                'available' => true,
+                'couverture' => '/images/livres/git.jpg',
+                'disponible' => true,
                 'pages' => 280,
-                'published_year' => 2024
+                'annee_publication' => 2024
             ],
             [
                 'id' => 5,
-                'title' => 'PostgreSQL Avancé',
-                'author' => 'Database Guru',
+                'titre' => 'PostgreSQL Avancé',
+                'auteur' => 'Expert Base de Données',
                 'isbn' => '978-2-369147-25-8',
-                'category' => 'Base de Données',
+                'categorie' => 'Base de Données',
                 'description' => 'PostgreSQL pour les développeurs : requêtes complexes, index, performances et administration.',
-                'cover' => '/images/books/postgresql.jpg',
-                'available' => true,
+                'couverture' => '/images/livres/postgresql.jpg',
+                'disponible' => true,
                 'pages' => 520,
-                'published_year' => 2023
+                'annee_publication' => 2023
             ]
         ];
     }
@@ -184,17 +184,17 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = $this->getBooksData();
+        $livres = $this->getLivresData();
 
         // Statistiques simples
         $stats = [
-            'total' => count($books),
-            'available' => count(array_filter($books, fn($book) => $book['available'])),
-            'categories' => count(array_unique(array_column($books, 'category')))
+            'total' => count($livres),
+            'disponibles' => count(array_filter($livres, fn($livre) => $livre['disponible'])),
+            'categories' => count(array_unique(array_column($livres, 'categorie')))
         ];
 
         return view('books.index', [
-            'books' => $books,
+            'livres' => $livres,
             'stats' => $stats
         ]);
     }
@@ -207,26 +207,26 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $books = $this->getBooksData();
+        $livres = $this->getLivresData();
         
         // Trouver le livre par ID
-        $book = collect($books)->firstWhere('id', (int)$id);
+        $livre = collect($livres)->firstWhere('id', (int)$id);
 
         // Si livre non trouvé, retourner 404
-        if (!$book) {
+        if (!$livre) {
             abort(404, 'Livre non trouvé');
         }
 
         // Livres similaires (même catégorie, sauf le livre courant)
-        $relatedBooks = collect($books)
-            ->where('category', $book['category'])
-            ->where('id', '!=', $book['id'])
+        $livresAssocies = collect($livres)
+            ->where('categorie', $livre['categorie'])
+            ->where('id', '!=', $livre['id'])
             ->take(3)
             ->toArray();
 
         return view('books.show', [
-            'book' => $book,
-            'relatedBooks' => $relatedBooks
+            'livre' => $livre,
+            'livresAssocies' => $livresAssocies
         ]);
     }
 
@@ -239,23 +239,23 @@ class BookController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('q', '');
-        $books = $this->getBooksData();
+        $livres = $this->getLivresData();
         
-        $results = [];
+        $resultats = [];
         
         if ($query) {
             // Recherche simple dans titre et auteur
-            $results = array_filter($books, function($book) use ($query) {
-                return stripos($book['title'], $query) !== false || 
-                       stripos($book['author'], $query) !== false ||
-                       stripos($book['category'], $query) !== false;
+            $resultats = array_filter($livres, function($livre) use ($query) {
+                return stripos($livre['titre'], $query) !== false || 
+                       stripos($livre['auteur'], $query) !== false ||
+                       stripos($livre['categorie'], $query) !== false;
             });
         }
 
         return view('books.search', [
             'query' => $query,
-            'results' => $results,
-            'totalResults' => count($results)
+            'resultats' => $resultats,
+            'totalResultats' => count($resultats)
         ]);
     }
 }
