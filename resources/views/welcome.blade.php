@@ -13,7 +13,7 @@
                 <p class="lead mb-4">
                     Votre système de gestion de bibliothèque moderne, développé avec Laravel
                 </p>
-                <a href="{{ route('books.index') }}" class="btn btn-light btn-lg">
+                <a href="{{ route('livres.index') }}" class="btn btn-light btn-lg">
                     <i class="fas fa-search"></i> Explorer le Catalogue
                 </a>
             </div>
@@ -26,7 +26,7 @@
             <div class="card text-center h-100 border-primary">
                 <div class="card-body">
                     <i class="fas fa-books fa-2x text-primary mb-2"></i>
-                    <h3 class="text-primary">{{ $stats['totalBooks'] }}</h3>
+                    <h3 class="text-primary">{{ $stats['totalLivres'] }}</h3>
                     <p class="card-text">Livres au total</p>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="card text-center h-100 border-success">
                 <div class="card-body">
                     <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
-                    <h3 class="text-success">{{ $stats['availableBooks'] }}</h3>
+                    <h3 class="text-success">{{ $stats['livresDisponibles'] }}</h3>
                     <p class="card-text">Disponibles</p>
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <div class="card text-center h-100 border-warning">
                 <div class="card-body">
                     <i class="fas fa-hand-holding fa-2x text-warning mb-2"></i>
-                    <h3 class="text-warning">{{ $stats['totalLoans'] }}</h3>
+                    <h3 class="text-warning">{{ $stats['totalEmprunts'] }}</h3>
                     <p class="card-text">Emprunts actifs</p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="card text-center h-100 border-info">
                 <div class="card-body">
                     <i class="fas fa-users fa-2x text-info mb-2"></i>
-                    <h3 class="text-info">{{ $stats['totalUsers'] }}</h3>
+                    <h3 class="text-info">{{ $stats['totalUtilisateurs'] }}</h3>
                     <p class="card-text">Utilisateurs</p>
                 </div>
             </div>
@@ -69,9 +69,9 @@
             </h2>
         </div>
         
-        @foreach($featuredBooks as $book)
+            @foreach($livresEnVedette as $livre)
         <div class="col-md-4 mb-4">
-            <x-book-card :book="$book" />
+                <x-livre-card :livre="$livre" />
         </div>
         @endforeach
     </div>
@@ -86,10 +86,10 @@
                         Explorez notre catalogue complet ou apprenez-en plus sur notre système
                     </p>
                     <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="{{ route('books.index') }}" class="btn btn-primary">
+                            <a href="{{ route('livres.index') }}" class="btn btn-primary">
                             <i class="fas fa-books"></i> Voir tous les livres
                         </a>
-                        <a href="{{ route('books.search') }}" class="btn btn-outline-secondary">
+                            <a href="{{ route('livres.search') }}" class="btn btn-outline-secondary">
                             <i class="fas fa-search"></i> Recherche avancée
                         </a>
                         <a href="{{ route('about') }}" class="btn btn-outline-info">

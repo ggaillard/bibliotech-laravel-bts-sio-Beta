@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class BookController extends Controller
+class LivreController extends Controller
 {
     /**
      * SÉANCE 1 : Affichage liste avec données statiques
@@ -15,35 +15,35 @@ class BookController extends Controller
     public function index()
     {
         // Données STATIQUES pour comprendre MVC
-        $books = [
-            [
-                'id' => 1, 
-                'title' => 'Laravel pour Débutants', 
-                'author' => 'John Smith',
-                'year' => 2024,
-                'pages' => 320,
-                'description' => 'Guide complet pour apprendre Laravel étape par étape.'
-            ],
-            [
-                'id' => 2, 
-                'title' => 'Docker en Pratique', 
-                'author' => 'Marie Dubois',
-                'year' => 2023,
-                'pages' => 280,
-                'description' => 'Maîtriser la containerisation avec Docker.'
-            ],
-            [
-                'id' => 3, 
-                'title' => 'MVC Expliqué Simplement', 
-                'author' => 'Pierre Martin',
-                'year' => 2024,
-                'pages' => 195,
-                'description' => 'Comprendre l\'architecture MVC avec des exemples concrets.'
-            ]
-        ];
+            $livres = [
+                [
+                    'id' => 1, 
+                    'titre' => 'Laravel pour Débutants', 
+                    'auteur' => 'John Smith',
+                    'year' => 2024,
+                    'pages' => 320,
+                    'description' => 'Guide complet pour apprendre Laravel étape par étape.'
+                ],
+                [
+                    'id' => 2, 
+                    'titre' => 'Docker en Pratique', 
+                    'auteur' => 'Marie Dubois',
+                    'year' => 2023,
+                    'pages' => 280,
+                    'description' => 'Maîtriser la containerisation avec Docker.'
+                ],
+                [
+                    'id' => 3, 
+                    'titre' => 'MVC Expliqué Simplement', 
+                    'auteur' => 'Pierre Martin',
+                    'year' => 2024,
+                    'pages' => 195,
+                    'description' => 'Comprendre l\'architecture MVC avec des exemples concrets.'
+                ]
+            ];
         
         return view('books.index', [
-            'books' => $books,
+                'livres' => $livres,
             'total' => count($books)
         ]);
     }
@@ -59,35 +59,35 @@ class BookController extends Controller
     public function show($id)
     {
         // Simuler la recherche (sans BDD pour S1)
-        $books = [
-            1 => [
-                'id' => 1, 
-                'title' => 'Laravel pour Débutants', 
-                'author' => 'John Smith',
-                'year' => 2024,
-                'pages' => 320,
-                'isbn' => '978-2-1234-5678-9',
-                'description' => 'Guide complet pour apprendre Laravel étape par étape. Ce livre couvre tous les aspects fondamentaux du framework PHP le plus populaire.'
-            ],
-            2 => [
-                'id' => 2, 
-                'title' => 'Docker en Pratique', 
-                'author' => 'Marie Dubois',
-                'year' => 2023,
-                'pages' => 280,
-                'isbn' => '978-2-1234-5679-6',
-                'description' => 'Maîtriser la containerisation avec Docker. Apprenez à créer, déployer et gérer des applications containerisées.'
-            ],
-            3 => [
-                'id' => 3, 
-                'title' => 'MVC Expliqué Simplement', 
-                'author' => 'Pierre Martin',
-                'year' => 2024,
-                'pages' => 195,
-                'isbn' => '978-2-1234-5680-2',
-                'description' => 'Comprendre l\'architecture MVC avec des exemples concrets. Pattern architectural incontournable du développement moderne.'
-            ]
-        ];
+            $livres = [
+                1 => [
+                    'id' => 1, 
+                    'titre' => 'Laravel pour Débutants', 
+                    'auteur' => 'John Smith',
+                    'year' => 2024,
+                    'pages' => 320,
+                    'isbn' => '978-2-1234-5678-9',
+                    'description' => 'Guide complet pour apprendre Laravel étape par étape. Ce livre couvre tous les aspects fondamentaux du framework PHP le plus populaire.'
+                ],
+                2 => [
+                    'id' => 2, 
+                    'titre' => 'Docker en Pratique', 
+                    'auteur' => 'Marie Dubois',
+                    'year' => 2023,
+                    'pages' => 280,
+                    'isbn' => '978-2-1234-5679-6',
+                    'description' => 'Maîtriser la containerisation avec Docker. Apprenez à créer, déployer et gérer des applications containerisées.'
+                ],
+                3 => [
+                    'id' => 3, 
+                    'titre' => 'MVC Expliqué Simplement', 
+                    'auteur' => 'Pierre Martin',
+                    'year' => 2024,
+                    'pages' => 195,
+                    'isbn' => '978-2-1234-5680-2',
+                    'description' => 'Comprendre l\'architecture MVC avec des exemples concrets. Pattern architectural incontournable du développement moderne.'
+                ]
+            ];
         
         // Vérifier si le livre existe
         if (!isset($books[$id])) {
@@ -95,7 +95,7 @@ class BookController extends Controller
         }
         
         return view('books.show', [
-            'book' => $books[$id]
+                'book' => $livres[$id]
         ]);
     }
 }
@@ -116,10 +116,10 @@ class BookController extends Controller
         return [
             [
                 'id' => 1,
-                'title' => 'Maîtriser Laravel',
-                'author' => 'Expert PHP',
+                'titre' => 'Maîtriser Laravel',
+                'auteur' => 'Expert PHP',
                 'isbn' => '978-2-123456-78-9',
-                'category' => 'Développement Web',
+                'categorie' => 'Développement Web',
                 'description' => 'Guide complet pour apprendre Laravel de A à Z. Architecture MVC, Eloquent ORM, Blade templates et bien plus.',
                 'cover' => '/images/books/laravel.jpg',
                 'available' => true,
@@ -128,10 +128,10 @@ class BookController extends Controller
             ],
             [
                 'id' => 2,
-                'title' => 'Docker pour Débutants',
-                'author' => 'DevOps Master',
+                'titre' => 'Docker pour Débutants',
+                'auteur' => 'DevOps Master',
                 'isbn' => '978-2-987654-32-1',
-                'category' => 'Infrastructure',
+                'categorie' => 'Infrastructure',
                 'description' => 'Apprenez la containerisation avec Docker. Installation, configuration, Docker Compose et bonnes pratiques.',
                 'cover' => '/images/books/docker.jpg',
                 'available' => true,
@@ -140,10 +140,10 @@ class BookController extends Controller
             ],
             [
                 'id' => 3,
-                'title' => 'PHP 8 Moderne',
-                'author' => 'Développeur Pro',
+                'titre' => 'PHP 8 Moderne',
+                'auteur' => 'Développeur Pro',
                 'isbn' => '978-2-456789-12-3',
-                'category' => 'Programmation',
+                'categorie' => 'Programmation',
                 'description' => 'Découvrez PHP 8 et ses nouveautés : Union Types, Attributes, Match Expression et performances améliorées.',
                 'cover' => '/images/books/php.jpg',
                 'available' => false,

@@ -51,8 +51,8 @@
 - **Seeders** : Remplir la BDD avec des données de test
 
 #### **Exercices**
-- Créer table `books` et `categories`
-- Modèles `Book` et `Category` avec relations
+ - Créer table `livres` et `categories`
+ - Modèles `Livre` et `Catégorie` avec relations
 - Afficher livres depuis BDD
 - Ajouter données via seeders
 
@@ -117,8 +117,8 @@
 - **Sanctum** : Authentification API
 
 #### **Exercices**
-- Table pivot `author_book`
-- API endpoints `/api/books`
+ - Table pivot `auteur_livre`
+ - Points d'API `/api/livres`
 - Tests API avec Postman
 - Protection API par tokens
 

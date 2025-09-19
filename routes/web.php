@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\LivreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +24,13 @@ Route::get('/about', function () {
 })->name('about');
 
 // 3. Liste livres - Route vers contrôleur
-Route::get('/livres', [BookController::class, 'index'])->name('books.index');
+Route::get('/livres', [LivreController::class, 'index'])->name('livres.index');
 
 // 4. Détail livre - Route avec paramètre
-Route::get('/livre/{id}', [BookController::class, 'show'])->name('books.show');
+Route::get('/livre/{id}', [LivreController::class, 'show'])->name('livres.show');
 <?php
 
-use App\Http\Controllers\BookController;
+// Contrôleur LivreController utilisé, BookController supprimé
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,12 +43,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route d'accueil
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 
 // Routes des livres
-Route::get('/livres', [BookController::class, 'index'])->name('books.index');
-Route::get('/livres/{id}', [BookController::class, 'show'])->name('books.show');
-Route::get('/recherche', [BookController::class, 'search'])->name('books.search');
+Route::get('/livres', [LivreController::class, 'index'])->name('livres.index');
+Route::get('/livres/{id}', [LivreController::class, 'show'])->name('livres.show');
+Route::get('/recherche', [LivreController::class, 'search'])->name('livres.search');
 
 // Pages statiques
 Route::get('/a-propos', function () {

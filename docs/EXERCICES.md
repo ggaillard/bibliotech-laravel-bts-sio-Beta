@@ -131,15 +131,15 @@ Dans `app/Http/Controllers/BookController.php`, ajouter vos livres dans la méth
 // Ajouter après le livre ID 5
 [
     'id' => 6,
-    'title' => 'Votre Titre de Livre',
-    'author' => 'Votre Auteur Préféré',
+    'titre' => 'Votre Titre de Livre',
+    'auteur' => 'Votre Auteur Préféré',
     'isbn' => '978-2-1234-5683-3',
     'publication_year' => 2024,
     'pages' => 300,
     'available' => true, // ou false
     'description' => 'Description détaillée de votre livre...',
     'cover' => 'https://via.placeholder.com/200x300/[COULEUR]/FFFFFF?text=TITRE',
-    'category' => 'Votre Catégorie',
+    'categorie' => 'Votre Catégorie',
     'language' => 'Français',
     'publisher' => 'Votre Éditeur'
 ],

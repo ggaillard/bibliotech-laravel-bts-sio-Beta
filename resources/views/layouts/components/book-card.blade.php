@@ -1,28 +1,28 @@
 {{-- Composant carte livre réutilisable --}}
-@props(['book', 'showDetails' => false])
+@props(['livre', 'showDetails' => false])
 
 <div class="card h-100 shadow-sm">
-    <img src="{{ $book['cover'] ?? '/images/books/default.jpg' }}" 
-         class="card-img-top" alt="{{ $book['title'] }}" 
-         style="height: 200px; object-fit: cover;">
+    <img src="{{ $livre['couverture'] ?? '/images/livres/default.jpg' }}" 
+        class="card-img-top" alt="{{ $livre['titre'] }}" 
+        style="height: 200px; object-fit: cover;">
     
     <div class="card-body d-flex flex-column">
-        <h5 class="card-title">{{ $book['title'] }}</h5>
+        <h5 class="card-title">{{ $livre['titre'] }}</h5>
         <p class="card-text text-muted">
-            <i class="fas fa-user"></i> {{ $book['author'] }}
+            <i class="fas fa-user"></i> {{ $livre['auteur'] }}
         </p>
         
-        @if(isset($book['category']))
-        <span class="badge bg-secondary mb-2">{{ $book['category'] }}</span>
-        @endif
+    @if(isset($livre['categorie']))
+    <span class="badge bg-secondary mb-2">{{ $livre['categorie'] }}</span>
+    @endif
         
-        @if($showDetails && isset($book['description']))
-        <p class="card-text">{{ Str::limit($book['description'], 100) }}</p>
-        @endif
+    @if($showDetails && isset($livre['description']))
+    <p class="card-text">{{ Str::limit($livre['description'], 100) }}</p>
+    @endif
         
         <div class="mt-auto">
-            @if(isset($book['available']))
-                @if($book['available'])
+            @if(isset($livre['disponible']))
+                @if($livre['disponible'])
                     <span class="badge bg-success mb-2">
                         <i class="fas fa-check"></i> Disponible
                     </span>
@@ -34,7 +34,7 @@
             @endif
             
             <div class="d-grid">
-                <a href="{{ route('books.show', $book['id']) }}" class="btn btn-outline-primary">
+                <a href="{{ route('livres.show', $livre['id']) }}" class="btn btn-outline-primary">
                     <i class="fas fa-eye"></i> Voir détails
                 </a>
             </div>

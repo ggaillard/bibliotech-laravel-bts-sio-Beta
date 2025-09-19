@@ -1,8 +1,8 @@
 @extends('layouts.app', [
-    'title' => $book['title'],
+    'title' => $livre['titre'],
     'breadcrumbs' => [
-        ['label' => 'Catalogue', 'url' => route('books.index')],
-        ['label' => $book['title'], 'url' => null]
+    ['label' => 'Catalogue', 'url' => route('livres.index')],
+    ['label' => $livre['titre'], 'url' => null]
     ]
 ])
 
@@ -12,8 +12,8 @@
         {{-- Image du livre --}}
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{ $book['cover'] ?? '/images/books/default.jpg' }}" 
-                     class="card-img-top" alt="{{ $book['title'] }}"
+                <img src="{{ $livre['couverture'] ?? '/images/livres/default.jpg' }}" 
+                    class="card-img-top" alt="{{ $livre['titre'] }}"
                      style="height: 400px; object-fit: cover;">
             </div>
             
@@ -41,7 +41,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h1 class="mb-0">{{ $book['title'] }}</h1>
+                    <h1 class="mb-0">{{ $livre['titre'] }}</h1>
                     @if($book['available'])
                         <span class="badge bg-success fs-6">Disponible</span>
                     @else
@@ -53,11 +53,11 @@
                     <div class="row mb-4">
                         <div class="col-sm-6">
                             <h5><i class="fas fa-user"></i> Auteur</h5>
-                            <p>{{ $book['author'] }}</p>
+                            <p>{{ $livre['auteur'] }}</p>
                         </div>
                         <div class="col-sm-6">
                             <h5><i class="fas fa-tag"></i> Catégorie</h5>
-                            <span class="badge bg-secondary">{{ $book['category'] }}</span>
+                            <span class="badge bg-secondary">{{ $livre['categorie'] }}</span>
                         </div>
                     </div>
 
@@ -89,16 +89,16 @@
     </div>
 
     {{-- Livres similaires --}}
-    @if(count($relatedBooks) > 0)
+    @if(count($livresAssocies) > 0)
     <div class="row mt-5">
         <div class="col-12">
             <h3><i class="fas fa-similar"></i> Livres similaires</h3>
-            <p class="text-muted">Autres livres de la catégorie "{{ $book['category'] }}"</p>
+            <p class="text-muted">Autres livres de la catégorie "{{ $livre['categorie'] }}"</p>
         </div>
         
-        @foreach($relatedBooks as $relatedBook)
+        @foreach($livresAssocies as $livreAssocie)
         <div class="col-md-4 mb-3">
-            <x-book-card :book="$relatedBook" />
+            <x-livre-card :livre="$livreAssocie" />
         </div>
         @endforeach
     </div>

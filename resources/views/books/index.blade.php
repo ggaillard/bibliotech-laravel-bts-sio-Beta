@@ -17,11 +17,11 @@
                         Catalogue des Livres
                     </h1>
                     <p class="text-muted">
-                        {{ $stats['total'] }} livres • {{ $stats['available'] }} disponibles • {{ $stats['categories'] }} catégories
+                        {{ $stats['totalLivres'] }} livres • {{ $stats['livresDisponibles'] }} disponibles • {{ $stats['totalCategories'] }} catégories
                     </p>
                 </div>
                 <div>
-                    <a href="{{ route('books.search') }}" class="btn btn-outline-primary">
+                    <a href="{{ route('livres.search') }}" class="btn btn-outline-primary">
                         <i class="fas fa-search"></i> Recherche avancée
                     </a>
                 </div>
@@ -31,9 +31,9 @@
 
     {{-- Liste des livres --}}
     <div class="row">
-        @forelse($books as $book)
+        @forelse($livres as $livre)
         <div class="col-md-6 col-lg-4 mb-4">
-            <x-book-card :book="$book" :show-details="true" />
+            <x-livre-card :livre="$livre" :show-details="true" />
         </div>
         @empty
         <div class="col-12">
@@ -46,7 +46,7 @@
     </div>
 
     {{-- Message informatif --}}
-    @if(count($books) > 0)
+    @if(count($livres) > 0)
     <div class="row mt-4">
         <div class="col-12">
             <div class="alert alert-light">

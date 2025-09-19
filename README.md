@@ -155,31 +155,31 @@ graph TB
     JOBS --> MAIL
     JOBS --> STORAGE
     
-    %% Styles
-    classDef frontend fill:#e3f2fd,stroke:#1976d2
-    classDef backend fill:#f1f8e9,stroke:#388e3c
-    classDef database fill:#fce4ec,stroke:#c2185b
-    classDef external fill:#fff8e1,stroke:#f57c00
-    classDef infra fill:#f3e5f5,stroke:#7b1fa2
-    
-    class UI,PWA,API_CLIENT frontend
-    class ROUTES,MIDDLEWARE,CONTROLLERS,MODELS,SERVICES,JOBS backend
-    class POSTGRES,REDIS database
-    class OPENAI,MAIL,STORAGE external
-    class DOCKER,NGINX,SUPERVISOR infra
-```
-
-### **🗄️ Modèle de Données**
-
-```mermaid
-erDiagram
-    USER {
-        id bigint PK
-        name varchar
-        email varchar UK
-        password varchar
-        role enum
-        avatar varchar
+    UTILISATEUR {
+        nom varchar
+        courriel varchar UK
+        cree_le timestamp
+        modifie_le timestamp
+    }
+    LIVRE {
+        titre varchar
+        auteur varchar
+        categorie_id bigint FK
+        cree_le timestamp
+        modifie_le timestamp
+    }
+    CATEGORIE {
+        nom varchar UK
+        cree_le timestamp
+        modifie_le timestamp
+    }
+    EMPRUNT {
+        utilisateur_id bigint FK
+        livre_id bigint FK
+        emprunte_le timestamp
+        cree_le timestamp
+        modifie_le timestamp
+    }
         created_at timestamp
         updated_at timestamp
     }
@@ -435,9 +435,10 @@ docker-compose down
 - 💡 **Suggestion** : [Proposer une amélioration](../../issues/new?template=feature-request.md)
 
 ### **📚 Documentation**
-- 🔧 **Problème technique** : [Guide dépannage](docs/TROUBLESHOOTING.md)
-- 📖 **Concepts Laravel** : [Concepts MVC](docs/seance-01/01-CONCEPTS-MVC.md)
-- 📝 **Glossaire** : [Vocabulaire technique](docs/seance-01/02-GLOSSAIRE-LARAVEL.md)
+    - 🔧 **Problème technique** : [Guide dépannage](docs/TROUBLESHOOTING.md)
+    - 📖 **Concepts Laravel** : [Concepts MVC](docs/seance-01/01-CONCEPTS-MVC.md)
+    - 📝 **Glossaire** : [Vocabulaire technique](docs/seance-01/02-GLOSSAIRE-LARAVEL.md)
+    - 🇫🇷 **Traduction complète du projet** : [Plan de traduction FR](docs/PLAN-TRADUCTION-FR.md)
 
 ---
 
