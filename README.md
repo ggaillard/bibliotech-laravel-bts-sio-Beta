@@ -81,6 +81,7 @@ graph TB
         MODELS[🏗️ Models Eloquent]
         SERVICES[⚙️ Services]
         JOBS[📋 Jobs/Queues]
+        WEBSOCKET[🔔 WebSocket Serveur]
     end
     
     subgraph "Base de Données"
@@ -97,10 +98,13 @@ graph TB
     UI --> ROUTES
     PWA --> API_CLIENT
     API_CLIENT --> ROUTES
+    UI --> WEBSOCKET
+    PWA --> WEBSOCKET
     ROUTES --> MIDDLEWARE
     MIDDLEWARE --> CONTROLLERS
     CONTROLLERS --> SERVICES
     CONTROLLERS --> MODELS
+    CONTROLLERS --> WEBSOCKET
     MODELS --> POSTGRES
     SERVICES --> REDIS
     SERVICES --> OPENAI
@@ -294,7 +298,7 @@ bibliotech/
 
 ---
 
-## 🛠️ **Technologies Utilisées**
+## 🛠️ **Technologies et Concepts Utilisés**
 
 ### **🎯 Stack Principal**
 - **Framework** : Laravel 11.x
@@ -303,19 +307,25 @@ bibliotech/
 - **Cache** : Redis
 - **Frontend** : Blade Templates + Bootstrap 5
 - **Containerisation** : Docker + Docker Compose
+- **WebSocket** : Communication temps réel (notifications, chat, mises à jour live)
+- **API REST** : Accès aux données via API pour clients externes
 
 ### **📦 Dépendances Clés**
 - **laravel/framework** : Framework principal
 - **laravel/sanctum** : Authentification API
-- **spatie/laravel-permission** : Gestion des rôles
+- **spatie/laravel-permission** : Gestion des rôles et permissions
 - **barryvdh/laravel-debugbar** : Debug en développement
 - **intervention/image** : Manipulation d'images
 
-### **🔧 Outils de Développement**
+### **🔧 Outils et Concepts de Développement**
 - **GitHub Codespaces** : Environnement de développement cloud
 - **Laravel Sail** : Environnement Docker pour Laravel  
 - **Laravel Mix** : Compilation des assets
 - **PHPUnit** : Tests unitaires et fonctionnels
+- **Notifications** : Par WebSocket ou email
+- **Gestion des rôles et permissions** : Sécurité et accès différencié
+- **Tests automatisés** : Qualité et fiabilité du code
+- **CI/CD** : Déploiement et intégration continue
 
 ---
 
