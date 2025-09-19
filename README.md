@@ -51,48 +51,32 @@ Voici une représentation compatible GitHub, inspirée UML, avec les acteurs et 
     - S'inscrire
 
 - 🔓 **Utilisateur**
-    - Se connecter
-    - Gérer son profil
-    - Réserver des livres
-    - Consulter ses emprunts
-    - Noter/Commenter
-    - Recevoir recommandations IA
+```yaml
+UTILISATEUR:
+    nom: varchar
+    courriel: varchar UK
+    cree_le: timestamp
+    modifie_le: timestamp
 
-- 👨‍💼 **Bibliothécaire**
-    - Gérer les emprunts
-    - Ajouter/Modifier livres
-    - Gérer les utilisateurs
-    - Traiter les réservations
-    - Générer des rapports
+LIVRE:
+    titre: varchar
+    auteur: varchar
+    categorie_id: bigint FK
+    cree_le: timestamp
+    modifie_le: timestamp
 
-- 👑 **Administrateur**
-    - Configurer le système
-    - Gérer les rôles
-    - Sauvegarder/Restaurer
-    - Monitorer performance
+CATEGORIE:
+    nom: varchar UK
+    cree_le: timestamp
+    modifie_le: timestamp
 
-### **📋 Détail des Cas d'Utilisation par Séance**
-
-#### **Séance 1-2 : Fondations (Visiteur)**
-| Cas d'Usage | Description | Complexité |
-|-------------|-------------|------------|
-| **Consulter catalogue** | Afficher la liste paginée des livres disponibles | 🟢 Simple |
-| **Rechercher livres** | Filtrer par titre, auteur, catégorie | 🟢 Simple |
-| **Voir détails** | Page détaillée d'un livre avec toutes les informations | 🟢 Simple |
-
-#### **Séances 3-4 : CRUD + Auth (Utilisateur)**
-| Cas d'Usage | Description | Complexité |
-|-------------|-------------|------------|
-| **S'inscrire/Connecter** | Gestion complète de l'authentification | 🟡 Moyen |
-| **Gérer profil** | Modification des données personnelles | 🟡 Moyen |
-| **Réserver livres** | Système de réservation avec gestion des conflits | 🟡 Moyen |
-
-#### **Séances 5-6 : Relations + Fonctionnalités (Bibliothécaire)**
-| Cas d'Usage | Description | Complexité |
-|-------------|-------------|------------|
-| **Gérer emprunts** | Prêts, retours, relances automatiques | 🔴 Complexe |
-| **CRUD livres** | Interface d'administration complète | 🟡 Moyen |
-| **Rapports** | Statistiques et exports de données | 🔴 Complexe |
+EMPRUNT:
+    utilisateur_id: bigint FK
+    livre_id: bigint FK
+    emprunte_le: timestamp
+    cree_le: timestamp
+    modifie_le: timestamp
+```
 
 #### **Séances 7-8 : Technologies Avancées (Admin)**
 | Cas d'Usage | Description | Complexité |
