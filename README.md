@@ -323,7 +323,7 @@ bibliotech/
 
 | Séance | Documentation | Exercices | Code Source |
 |---------|---------------|-----------|-------------|
-| **Séance 1** | [📖 Guide S1](docs/SEANCE-1/README.md) | [💪 Exercices S1](docs/SEANCE-1/EXERCICES.md) | [📁 Code S1](docs/SEANCE-1/code/) |
+| **Séance 1** | [📖 Guide S1](docs/seance-01/00-README.md) | [💪 Exercices S1](docs/seance-01/05-EXERCICES-PRATIQUES.md) | [📁 Code S1](docs/seance-01/) |
 
 ---
 
