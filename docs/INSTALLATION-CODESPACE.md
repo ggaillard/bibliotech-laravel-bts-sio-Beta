@@ -244,6 +244,40 @@ ps aux | grep "php artisan serve"
 
 ---
 
-**🎉 Profitez de votre environnement de développement professionnel dans le cloud !**
+
+---
+
+## 🛠️ Commandes essentielles pour le premier lancement
+
+Dans le terminal intégré VS Code, exécutez :
+
+```bash
+composer install           # Installe les dépendances PHP
+npm install                # Installe les dépendances JS
+cp .env.example .env       # Copie le fichier d'environnement
+php artisan key:generate  # Génère la clé d'application
+php artisan migrate       # (optionnel) Crée les tables en base
+php artisan serve         # Démarre le serveur Laravel
+```
+
+Ensuite, ouvrez l'application via l'onglet PORTS (port 8000) ou l'URL fournie.
 
 > 💡 **Astuce** : Ajoutez cette page aux favoris pour y revenir facilement
+
+---
+
+## 🚀 Installation & Démarrage universelle
+
+Utilisez les scripts suivants pour installer et démarrer le projet, quel que soit l'environnement :
+
+```bash
+bash scripts/install.sh      # Installation automatique
+bash scripts/start.sh        # Démarrage du serveur Laravel
+bash scripts/check.sh        # Diagnostic (optionnel)
+```
+- L’URL d’accès est affichée à la fin du démarrage (onglet PORTS ou https://CODESPACE_NAME-8000.app.github.dev).
+
+**Remarques :**
+- Le script `install.sh` détecte automatiquement l’environnement (Codespace, Docker, local) et configure tout.
+- Le script `start.sh` attend la base de données, lance le serveur Laravel et affiche l’URL d’accès.
+- Pour vérifier l’installation, utilisez `bash scripts/check.sh`.

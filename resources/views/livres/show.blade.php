@@ -1,4 +1,3 @@
-// Ce fichier va être renommé en livres.show.blade.php
 @extends('layouts.app', [
     'title' => $livre['titre'],
     'breadcrumbs' => [
@@ -90,7 +89,7 @@
     </div>
 
     {{-- Livres similaires --}}
-    @if(count($livresAssocies) > 0)
+    @if(isset($livresAssocies) && count($livresAssocies) > 0)
     <div class="row mt-5">
         <div class="col-12">
             <h3><i class="fas fa-similar"></i> Livres similaires</h3>

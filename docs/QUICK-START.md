@@ -175,7 +175,21 @@ make start
 
 ---
 
+## 🚀 Installation & Démarrage universelle
 
+Utilisez les scripts suivants pour installer et démarrer le projet, quel que soit l'environnement :
+
+```bash
+bash scripts/install.sh      # Installation automatique
+bash scripts/start.sh        # Démarrage du serveur Laravel
+bash scripts/check.sh        # Diagnostic (optionnel)
+```
+- L’URL d’accès est affichée à la fin du démarrage (onglet PORTS ou https://CODESPACE_NAME-8000.app.github.dev).
+
+**Remarques :**
+- Le script `install.sh` détecte automatiquement l’environnement (Codespace, Docker, local) et configure tout.
+- Le script `start.sh` attend la base de données, lance le serveur Laravel et affiche l’URL d’accès.
+- Pour vérifier l’installation, utilisez `bash scripts/check.sh`.
 
 ---
 

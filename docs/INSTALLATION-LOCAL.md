@@ -287,5 +287,38 @@ Route::get('/nouvelle-route', [Controller::class, 'method'])->name('route.name')
 
 **Contrôleurs :** `app/Http/Controllers/`
 ```bash
-# Créer un nouveau contrôleur
-make artisan cmd="
+
+---
+
+## 🛠️ Commandes essentielles pour le premier lancement (hors Docker)
+
+Dans le terminal, exécutez :
+
+```bash
+composer install           # Installe les dépendances PHP
+npm install                # Installe les dépendances JS
+cp .env.example .env       # Copie le fichier d'environnement
+php artisan key:generate   # Génère la clé d'application
+php artisan migrate        # (optionnel) Crée les tables en base
+php artisan serve          # Démarre le serveur Laravel
+```
+
+Ensuite, ouvrez l’application sur http://localhost:8000.
+
+---
+
+## 🚀 Installation & Démarrage universelle
+
+Utilisez les scripts suivants pour installer et démarrer le projet, quel que soit l'environnement :
+
+```bash
+bash scripts/install.sh      # Installation automatique
+bash scripts/start.sh        # Démarrage du serveur Laravel
+bash scripts/check.sh        # Diagnostic (optionnel)
+```
+- Accès via http://localhost:8000
+
+**Remarques :**
+- Le script `install.sh` détecte automatiquement l’environnement (Codespace, Docker, local) et configure tout.
+- Le script `start.sh` attend la base de données, lance le serveur Laravel et affiche l’URL d’accès.
+- Pour vérifier l’installation, utilisez `bash scripts/check.sh`.
