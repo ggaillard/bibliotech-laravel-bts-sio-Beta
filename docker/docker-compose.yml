@@ -1,0 +1,91 @@
+# Docker Compose pour Installation Locale
+# Configuration complète pour développement local
+
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: bibliotech_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ..:/var/www/html:cached
+      - vendor_cache:/var/www/html/vendor
+      - node_cache:/var/www/html/node_modules
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:8000
+      - DB_HOST=database
+      - DB_DATABASE=bibliotech
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=secret
+      - MAIL_HOST=mailhog
+      - MAIL_PORT=1025
+    depends_on:
+      database:
+        condition: service_healthy
+      mailhog:
+        condition: service_started
+    networks:
+      - bibliotech
+    command: ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
+  database:
+    image: postgres:15-alpine
+    container_name: bibliotech_db
+    environment:
+      - POSTGRES_DB=bibliotech
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - bibliotech
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d bibliotech"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: bibliotech_mailhog
+    ports:
+      - "8025:8025"
+    networks:
+      - bibliotech
+
+  # Adminer pour gestion BDD (optionnel)
+  adminer:
+    image: adminer:4-standalone
+    container_name: bibliotech_adminer
+    ports:
+      - "8080:8080"
+    environment:
+      - ADMINER_DEFAULT_SERVER=database
+    networks:
+      - bibliotech
+    depends_on:
+      - database
+    profiles:
+      - tools
+
+volumes:
+  postgres_data:
+    name: bibliotech_postgres_data
+  vendor_cache:
+    name: bibliotech_vendor_cache
+  node_cache:
+    name: bibliotech_node_cache
+
+networks:
+  bibliotech:
+    name: bibliotech_network
+    driver: bridge
