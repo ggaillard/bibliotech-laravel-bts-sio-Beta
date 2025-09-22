@@ -1,45 +1,29 @@
 {
-  "name": "🏗️ BiblioTech Laravel + Docker - BTS SIO SLAM",
+  "name": "📚 BiblioTech - BTS SIO SLAM",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
-  "shutdownAction": "stopCompose",
   
   "customizations": {
     "vscode": {
       "extensions": [
         "bmewburn.vscode-intelephense-client",
         "onecentlin.laravel-blade",
-        "ms-vscode.vscode-json",
-        "bradlc.vscode-tailwindcss",
-        "formulahendry.auto-rename-tag",
-        "ms-azuretools.vscode-docker",
-        "GitHub.vscode-pull-request-github",
-        "eamodio.gitlens",
-        "PKief.material-icon-theme",
-        "ms-vscode.thunder-client"
+        "onecentlin.laravel5-snippets",
+        "ryannaddy.laravel-artisan"
       ],
       "settings": {
         "php.validate.executablePath": "/usr/local/bin/php",
-        "php.debug.executablePath": "/usr/local/bin/php",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-          "source.fixAll": true
-        },
-        "workbench.iconTheme": "material-icon-theme",
-        "workbench.colorTheme": "Default Light+",
         "files.associations": {
-          "*.blade.php": "blade"
+          "*.blade.php": "blade",
+          ".env*": "dotenv"
         },
         "emmet.includeLanguages": {
           "blade": "html"
         },
-        "blade.format.enable": true,
+        "editor.formatOnSave": true,
         "terminal.integrated.defaultProfile.linux": "bash",
-        "explorer.confirmDelete": false,
-        "git.enableSmartCommit": true,
-        "editor.minimap.enabled": false,
-        "breadcrumbs.enabled": true
+        "workbench.startupEditor": "readme"
       }
     }
   },
@@ -47,38 +31,30 @@
   "postCreateCommand": "bash .devcontainer/setup.sh",
   "postStartCommand": "bash .devcontainer/start.sh",
   
+  "forwardPorts": [8000, 8025, 5432],
+  "portsAttributes": {
+    "8000": {
+      "label": "🌐 BiblioTech App",
+      "onAutoForward": "openBrowser"
+    },
+    "8025": {
+      "label": "📧 MailHog"
+    },
+    "5432": {
+      "label": "🗄️ PostgreSQL"
+    }
+  },
+  
   "remoteUser": "vscode",
   
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "18"
-    },
-    "ghcr.io/devcontainers/features/git:1": {
-      "version": "latest"
-    }
-  },
-  
-  "forwardPorts": [8000, 5432, 8025, 8080],
-  "portsAttributes": {
-    "8000": {
-      "label": "🌐 BiblioTech App",
-      "onAutoForward": "openPreview"
-    },
-    "5432": {
-      "label": "🗄️ PostgreSQL Database"
-    },
-    "8025": {
-      "label": "📧 MailHog (Email Testing)"
-    },
-    "8080": {
-      "label": "🔧 Adminer (DB Management)"
     }
   },
   
   "containerEnv": {
-    "APP_NAME": "BiblioTech",
     "APP_ENV": "development",
-    "APP_DEBUG": "true",
-    "SEANCE_ACTIVE": "1"
+    "CODESPACE_SETUP": "true"
   }
 }
