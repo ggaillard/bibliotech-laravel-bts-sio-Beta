@@ -228,42 +228,11 @@ erDiagram
 
 ---
 
-## 🚀 **Démarrage Rapide**
+##🔧 **Guides Techniques**
 
-### **Option 1 : GitHub Codespaces (Recommandé) 🌟**
-
-1. **Cliquez sur le bouton vert "Code"**
-2. **Sélectionnez l'onglet "Codespaces"** 
-3. **Cliquez "Create codespace on main"**
-4. **Attendez 2-3 minutes** - L'application se configure automatiquement
-5. **Accédez à http://localhost:8000** quand le terminal affiche "✅ BiblioTech est prêt !"
-
-**🎉 C'est tout ! Votre environnement est prêt en 3 clics.**
-
-### **Option 2 : Installation Locale**
-
-```bash
-# Cloner le projet
-git clone https://github.com/votre-username/bibliotech.git
-cd bibliotech
-
-# Docker Compose
-docker-compose up -d
-
-# Installation des dépendances
-docker-compose exec app composer install
-docker-compose exec app npm install && npm run build
-
-# Configuration
-docker-compose exec app cp .env.example .env
-docker-compose exec app php artisan key:generate
-
-# Base de données
-docker-compose exec app php artisan migrate --seed
-
-# Accéder à l'application
-# http://localhost:8000
-```
+⚡ Démarrage Rapide - Installation en 2 minutes  docs/QUICK-START.md
+☁️ Guide Codespace - Spécifique GitHub   docs/INSTALLATION-CODESPACE.md
+🏠 Installation Locale - Docker en local docs/INSTALLATION-LOCAL.md
 
 ---
 
