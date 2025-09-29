@@ -218,7 +218,7 @@ erDiagram
 | 🎓 Séance | 📚 Concepts Clés | 🛠️ Technologies | 🎯 Cas d'Utilisation |
 |-----------|------------------|------------------|----------------------|
 | **S1** | MVC, Routes, Blade | Laravel, Docker, GitHub Codespaces | Consultation catalogue, Recherche |
-| **S2** | Base de données, Migrations | PostgreSQL, Eloquent ORM | Gestion des données, Seeders |
+| **S2** | Base de données, Migrations | SQLite, Eloquent ORM | Gestion des données, Seeders |
 | **S3** | CRUD, Formulaires | Validation, Sessions, Flash Messages | Inscription, Profil utilisateur |
 | **S4** | Authentification, Sécurité | Laravel Auth, Middleware | Connexion, Rôles, Permissions |
 | **S5** | Relations, APIs | Relations Eloquent, API REST | Emprunts, Réservations, Relations |
