@@ -10,7 +10,7 @@
 **BiblioTech** est une application de gestion de bibliothèque moderne développée avec Laravel, conçue spécialement pour la formation BTS SIO SLAM. Le projet couvre progressivement tous les aspects du développement web moderne : de l'architecture MVC aux technologies avancées (IA, WebSockets, QR Codes).
 
 ### **🎓 Public Cible**
-- **Étudiants BTS SIO SLAM** - 1ère et 2ème année
+- **Étudiants BTS SIO SLAM** -  2ème année
 - **Formateurs** en développement web
 - **Développeurs débutants** souhaitant apprendre Laravel
 - **Professionnels** en reconversion
